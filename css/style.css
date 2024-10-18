@@ -24,11 +24,15 @@
     --ff-title: "Playfair Display", serif;
     --ff-body: "Assistant", sans-serif;
 }
+#sobre-nosotros{
+    word-spacing: 0px;
 
+}
 .menu{
     background-color: #00332a;
-    line-height: 2;
-    margin:0
+    line-height: 5;
+    word-spacing: 150px;
+    padding-left: 40vh;
 }
 @media (prefers-color-scheme: dark) {
     :root {

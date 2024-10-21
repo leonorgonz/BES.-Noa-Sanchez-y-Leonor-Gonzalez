@@ -6,6 +6,7 @@
     font-optical-sizing: auto;
     font-weight: 800;
     font-style: normal; 
+    
 }
 *,
 *::before,
@@ -35,6 +36,10 @@ body {
     margin: 0; /* Elimina el margen del body */
     height: 100vh; /* Asegura que el body tenga altura completa */
     overflow: auto; /* Permite el scroll por defecto */
+    background-color: aliceblue;
+    padding-bottom: 4rem;
+    font-size: 18px;
+    line-height: 1.6;
 }
 
 /* Capa de fondo con opacidad */
@@ -53,17 +58,18 @@ body {
 
 /* Barra de navegación oculta a la izquierda */
 .bar {
-    position: fixed; /* Cambiado a fixed para que esté en toda la ventana */
+    position: fixed;
     background-color: #ed6a42;
-    width: 0; /* Inicialmente oculta */
-    height: 100%; /* Altura completa de la ventana */
+    width: 0;
+    height: 100%;
     display: flex;
-    flex-direction: column; /* Cambiado a columna para el alineamiento */
-    justify-content: space-between; /* Distribuye los enlaces uniformemente */
-    overflow: hidden; /* Evita que el contenido se desborde */
-    transition: width 0.3s ease; /* Animación suave para el ancho */
-    z-index: 20; /* Asegura que esté encima del overlay */
-    padding: 10px 0; /* Espaciado superior e inferior */
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow: hidden;
+    transition: width 0.3s ease;
+    z-index: 20;
+    padding: 10px 0;
+    align-items: flex-start;
 }
 
 /* Imagen del botón para mostrar la barra */
@@ -110,7 +116,7 @@ body {
     position: absolute; /* Posición absoluta respecto al enlace */
     left: 0; /* Comienza al inicio del enlace */
     bottom: 0; /* Coloca la línea en la parte inferior del enlace */
-    width: calc(100% - 10px); /* Ancho de la línea igual al ancho del enlace menos 10px */
+    width: 100%; /* Ancho de la línea igual al ancho del enlace menos 10px */
     height: 2px; /* Grosor de la línea */
     background: white; /* Color de la línea */
     transform: scaleX(0); /* Comienza con la escala en 0 (oculto) */
@@ -121,9 +127,6 @@ body {
 .bar a:hover::after {
     transform: scaleX(1); /* Escala a 1 al hacer hover (visible) */
 }
-
-
-
 
 .menu{
     position: relative;
@@ -143,6 +146,104 @@ body {
   }
 
 
+  .wrapper {
+    background-color: #0004ff;
+    position: relative;
+    overflow: hidden; /* Oculta el contenido que se sale del contenedor */
+    width: 100%;
+    white-space: nowrap; /* Mantiene todo en una sola línea */
+  }
+  
+  .wrapper ul {
+    display: inline-flex; /* Asegura que los elementos estén en una sola línea */
+    list-style: none;
+    padding-left: 0;
+    margin: 0; /* Elimina márgenes para que no afecten el espacio */
+  }
+  
+  .wrapper li {
+    margin: 0 50px; /* Espacio entre cada ítem */
+    font-size: 2em;
+    display: inline-block;
+  }
+  
+  .marquee {
+    display: inline-flex;
+    animation: marquee 20s linear infinite; /* Más lenta y continua */
+  }
+  
+  .marquee2 {
+    display: inline-flex;
+    animation: marquee 20s linear infinite; /* Más lenta y continua */
+    position: absolute;
+    top: 0;
+  }
+  
+  @keyframes marquee {
+    from {
+      transform: translateX(0); /* Empieza desde el principio */
+    }
+    to {
+      transform: translateX(-50%); /* Se desplaza hacia la izquierda */
+    }
+  }
+  
+ /* Contenedor de la flecha y el texto en la parte superior del carousel */
+.arrow-container {
+    position: absolute;
+    top: 30px; /* Mueve la flecha y el texto a la parte superior */
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    cursor: pointer;
+    z-index: 50; /* Asegura que esté encima de las imágenes del carousel */
+  }
+  
+  .new-collection-text {
+    font-size: 14px;
+    color: white;
+    margin-bottom: 5px; /* Espaciado entre el texto y la flecha */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
+  .arrow {
+    width: 40px;
+    height: 40px;
+    color: white;
+    transition: transform 0.3s ease;
+  }
+  
+  .arrow:hover {
+    transform: translateY(5px); /* Mueve la flecha hacia abajo cuando pases el ratón */
+  }
+
+  .new-drop {
+    font-size: 1.5rem; /* Ajusta el tamaño de la fuente según sea necesario */
+    margin-top: 20px; /* Espacio superior */
+    font-size: 14px;
+    color: #0004ff;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 800;
+}
+
+/* Estilo para asegurar que el título esté alineado con el carrusel */
+@media (max-width: 768px) {
+    .new-drop {
+        font-size: 1.25rem; /* Tamaño de fuente más pequeño en dispositivos más pequeños */
+    }
+}
+
+@media (max-width: 576px) {
+    .new-drop {
+        font-size: 1rem; /* Tamaño de fuente más pequeño en dispositivos extra pequeños */
+    }
+}
+  
+  
+  
 
 
 
@@ -160,28 +261,11 @@ body {
     }
 }
 
-body {
-    margin: 0;
-    padding-bottom: 4rem;
-    background: var(--background);
-    color: var(--foreground);
-    font-family: var(--ff-body);
-    font-size: 18px;
-    line-height: 1.6;
-}
-
-h1 {
-    font-size: calc(3rem + 7vw);
-    font-family: var(--ff-title);
-    margin: 0 0 0.25rem;
-    line-height: 1;
-}
-
 .subtitle {
     max-width: 600px;
 }
 
-.btn-group {
+/* .btn-group {
     margin: 2rem 0;
     display: block !important;
 }
@@ -220,7 +304,7 @@ h1 {
     top: 0;
     border-radius: inherit;
     z-index: -1;
-}
+} */
 
 .intro {
     height: 80vh;

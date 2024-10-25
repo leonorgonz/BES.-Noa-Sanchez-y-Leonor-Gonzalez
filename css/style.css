@@ -228,8 +228,11 @@ body {
     padding-left: 1.5rem!important;
 }
 
-.countdown{
+.p-countdown{
     text-align: center;
+    margin-top: 2px !important;
+    background-color: #ed6a42;
+    padding-left: 1.5rem!important;
 }
 /* Estilo para asegurar que el título esté alineado con el carrusel */
 @media (max-width: 768px) {

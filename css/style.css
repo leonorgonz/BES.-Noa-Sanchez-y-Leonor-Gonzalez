@@ -219,16 +219,18 @@ body {
   }
 
   .new-drop {
-    font-size: 1.5rem; /* Ajusta el tamaño de la fuente según sea necesario */
     margin-top: 20px; /* Espacio superior */
-    font-size: 14px;
     color: #0004ff;
     margin-bottom: 5px;
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: 800;
+    padding-left: 1.5rem!important;
 }
 
+.countdown{
+    text-align: center;
+}
 /* Estilo para asegurar que el título esté alineado con el carrusel */
 @media (max-width: 768px) {
     .new-drop {

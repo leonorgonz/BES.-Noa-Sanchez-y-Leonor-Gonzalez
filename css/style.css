@@ -134,6 +134,44 @@ body {
 .carousel-item {
     transition: none !important; /* Desactiva las transiciones animadas */
 }
+.carousel-overlay {
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo negro con 50% de opacidad */
+  padding: 10px; /* Añade algo de espacio alrededor del carrusel */
+}
+
+#galleryCarousel1 .carousel-item img,
+#galleryCarousel3 .carousel-item img,
+#galleryCarousel2 .carousel-item img {
+  border: 3px solid black; /* Borde negro alrededor de cada imagen */
+  padding-top: 0px; /* Espacio entre el borde negro y la imagen */
+  padding-bottom: 40px;
+  padding-left: 0px;
+  padding-right: 0px;
+  background-color: transparent; /* Asegura que el fondo sea transparente */
+  position: relative;
+  z-index: 2; /* Asegura que la imagen esté encima del texto */
+}
+
+
+/* Estilo para el texto "NEW COLLECTION" */
+#galleryCarousel2 .carousel-item,
+#galleryCarousel1 .carousel-item,
+#galleryCarousel3 .carousel-item {
+  position: relative; /* Permite el posicionamiento absoluto dentro */
+}
+
+.collection-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 60px; /* Ajusta el tamaño de la letra */
+  color: rgba(0, 0, 0); /* Color negro translúcido para un efecto sutil */
+  z-index: 1; /* Asegura que el texto esté detrás de la imagen */
+  pointer-events: none; /* Evita que el texto sea interactivo */
+}
+
+
+
 
 .container {
     text-align: center;
@@ -225,14 +263,14 @@ body {
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: 800;
-    padding-left: 1.5rem!important;
+    padding: 1.5rem!important;
 }
 
-.p-countdown{
+.countdown{
     text-align: center;
     margin-top: 2px !important;
     background-color: #ed6a42;
-    padding-left: 1.5rem!important;
+
 }
 /* Estilo para asegurar que el título esté alineado con el carrusel */
 @media (max-width: 768px) {
@@ -327,103 +365,43 @@ body {
 
 
 
+figure{
+  padding: 10%;
+}
 
 
 
+.carousel-flickiti {
+  width: 50%; /* Ajusta este valor para hacer el carrusel más estrecho */
+  max-width: 200px; /* Limita el ancho máximo para mejorar la calidad visual */
+  margin: 0 auto; /* Centra el carrusel horizontalmente */
+}
 
-
-
-
-
-
-
-
-
-
+/* Estilo de las celdas del carrusel */
 .carousel-cell {
-    position: relative;
-    width: 66%;
-    height: 200px;
-    margin-right: 10px;
-    border-radius: 5px;
-    overflow: hidden;
-    
-  }
-  
-  .carousel-cell img {
-    width: 100%;
-    height: 14em;
-    object-fit: cover;
-    
-  }
-  
-  .carousel-cell span {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color:var(--text-color);
-    font-size: 18px;
-    font-weight: bold;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-  }
-  
-  .carousel-cell::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: var(--hover);
-    height: 100%;
-    opacity: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-  }
-  .carousel-cell:hover{
-    transform:scale(1.1);
-  }
-  .carousel-cell:hover img {
-    opacity: 1;
-    
-  }
-  
-  .carousel-cell:hover span {
-    opacity: 1; /* Mostrar el texto al hacer hover */
-  }
-  
-  .carousel-cell:hover::before {
-    opacity: 0.7;
-    
-  }
-  
-  /* Ajustes adicionales si es necesario */
-  .carousel {
-    display: flex;
-    overflow: hidden;
-  }
-
-
-
-
-.carousel {
-    display: flex;
-    justify-content: space-between;
+  width: 80%; /* Ocupa el 100% del ancho disponible en pantallas pequeñas */
+  margin: 0 8px; /* Espacio entre imágenes */
+  aspect-ratio: 1 / 1; /* Mantiene la forma cuadrada */
+  overflow: hidden;
+  border-radius: 5px;
 }
 
-.carousel > a {
-    width: 25%;
-    transition: filter 0.3s ease-in-out;
+/* Imágenes dentro del carrusel */
+.carousel-cell img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ajusta la imagen para que llene el cuadrado */
 }
 
-.carousel > a:hover {
-    filter: brightness(80%);
-    cursor: pointer;
+/* Media Queries para cambiar el número de imágenes visibles según el tamaño de la pantalla */
+@media (min-width: 768px) {
+  .carousel-cell {
+      width: 48%; /* Dos imágenes visibles en pantallas medianas */
+  }
 }
 
-section > p > a {
-    text-decoration: none;
+@media (min-width: 1024px) {
+  .carousel-cell {
+      width: 30%; /* Tres imágenes visibles en pantallas grandes */
+  }
 }

@@ -131,35 +131,45 @@ body {
 .menu{
     position: relative;
 }
-.carousel-item {
-    transition: none !important; /* Desactiva las transiciones animadas */
-}
-.carousel-overlay {
-  background-color: rgba(0, 0, 0, 0.5); /* Fondo negro con 50% de opacidad */
-  padding: 10px; /* Añade algo de espacio alrededor del carrusel */
-}
-
-#galleryCarousel1 .carousel-item img,
-#galleryCarousel3 .carousel-item img,
-#galleryCarousel2 .carousel-item img {
-  border: 3px solid black; /* Borde negro alrededor de cada imagen */
-  padding-top: 0px; /* Espacio entre el borde negro y la imagen */
-  padding-bottom: 40px;
-  padding-left: 0px;
-  padding-right: 0px;
-  background-color: transparent; /* Asegura que el fondo sea transparente */
+/* .carousel-item {
+  transition: none !important;
   position: relative;
-  z-index: 2; /* Asegura que la imagen esté encima del texto */
+} */
+
+/* Overlay styling */
+/* .carousel-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  z-index: 3;
+} */
+
+/* General image styling */
+/* #galleryCarousel1 .carousel-item img,
+#galleryCarousel2 .carousel-item img,
+#galleryCarousel3 .carousel-item img {
+  border: 3px solid black;
+  padding-bottom: 40px;
+  background-color: transparent;
+  z-index: 2;
+} */
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .carousel-overlay {
+    background-color: rgba(0, 0, 0, 0.6); /* Increase overlay opacity */
+  }
+  .collection-text {
+    font-size: 1.2rem; /* Adjust text size for smaller screens */
+  }
 }
-
-
-/* Estilo para el texto "NEW COLLECTION" */
-#galleryCarousel2 .carousel-item,
-#galleryCarousel1 .carousel-item,
-#galleryCarousel3 .carousel-item {
-  position: relative; /* Permite el posicionamiento absoluto dentro */
-}
-
 .collection-text {
   position: absolute;
   top: 0;
@@ -173,10 +183,10 @@ body {
 
 
 
-.container {
+/* .container {
     text-align: center;
     color: white;
-  }
+  } */
 .centered {
     top: 50%;
     left: 50%;

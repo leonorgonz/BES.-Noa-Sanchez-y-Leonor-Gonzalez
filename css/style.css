@@ -8,410 +8,315 @@
     font-style: normal; 
     
 }
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
+/* GRUPO DE LOS COLORES, SI PONES VAR(), ELIGES LA OPCIÓN DE ESTOS COLORES QUE YA ESTAN NOMBRADOS,IMPORTANTEEEEEE */
+:root {
+  --clr-black: #000000;
+  --clr-white: #ffffff;
+  --clr-primary: #ed6a42;
+  --clr-secondary: #0004ff;
+  --background:  aliceblue;
+  --ff-title: "Inter", sans-serif;
+  /* --ff-body: "Assistant", sans-serif; */
+  --ff-opacity: rgba(0, 0, 0, 0.5);
 }
-
-/* :root {
-    --clr-light: #fdffc4;
-    --clr-dark: #00332a;
-    --clr-primary: #dbffa2;
-    --clr-secondary: #c3fcf2;
-    --clr-accent: #ff7750;
-    --foreground: var(--clr-dark);
-    --background: var(--clr-light);
-    --ff-title: "Playfair Display", serif;
-    --ff-body: "Assistant", sans-serif;
-} */
-#sobre-nosotros{
-    word-spacing: 0px;
-
-}
-
-
-
 body {
-    margin: 0; /* Elimina el margen del body */
-    height: 100vh; /* Asegura que el body tenga altura completa */
-    overflow: auto; /* Permite el scroll por defecto */
-    background-color: aliceblue;
-    padding-bottom: 4rem;
-    font-size: 18px;
-    line-height: 1.6;
+  margin: 0; 
+  height: 100vh;
+  /* PARA EL SCROLL */
+  overflow: auto;
+  background-color: var(--background);
+  padding-bottom: 4rem;
+  font-size: 18px;
+  line-height: 1.6;
 }
 
-/* Capa de fondo con opacidad */
-.overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5); /* Color negro con opacidad */
-    opacity: 0; /* Inicialmente invisible */
-    transition: opacity 0.3s ease; /* Transición suave */
-    z-index: 10; /* Detrás del botón y la barra */
-    visibility: hidden; /* Invisible por defecto */
-}
 
-/* Barra de navegación oculta a la izquierda */
-.bar {
-    position: fixed;
-    background-color: #ed6a42;
-    width: 0;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    overflow: hidden;
-    transition: width 0.3s ease;
-    z-index: 20;
-    padding: 10px 0;
-    align-items: flex-start;
-}
-
-/* Imagen del botón para mostrar la barra */
-.menu-button {
-    position: fixed; /* Fijado */
-    top: 0; /* Pegado al margen superior */
-    left: 0; /* Pegado al margen izquierdo */
-    width: 60px; /* Ajusta el tamaño de la imagen según sea necesario */
-    height: 90px; /* Ajusta el tamaño de la imagen según sea necesario */
-    cursor: pointer; /* Cambia el cursor a pointer al pasar el mouse sobre la imagen */
-    z-index: 30; /* Asegura que esté encima de todo */
-    transition: transform 0.3s ease; /* Suaviza el movimiento al hacer clic */
-}
-
-/* Animación de vibración */
-@keyframes vibrate {
-    0% { transform: translateY(0); }
-    25% { transform: translateY(-3px); } /* Desplazamiento hacia arriba */
-    50% { transform: translateY(3px); }  /* Desplazamiento hacia abajo */
-    75% { transform: translateY(-3px); } /* Desplazamiento hacia arriba */
-    100% { transform: translateY(0); }
-}
-
-/* Clase que activará la vibración */
-.vibrate {
-    animation: vibrate 0.3s ease-in-out; /* Mantener la duración original */
-}
-
-/* Estilo para los enlaces de la barra */
-.bar a {
-    color: white; /* Color del texto de los enlaces */
-    padding: 10px; /* Espaciado interno */
-    font-size: 14px; /* Tamaño de fuente más pequeño */
-    text-align: center; /* Centra el texto de los enlaces */
-    margin: 5px 0; /* Margen arriba y abajo para reducir la separación */
-    text-decoration: none; /* Eliminar la línea de subrayado por defecto */
-    position: relative; /* Necesario para el pseudo-elemento */
-    overflow: hidden; /* Oculta el contenido que se sale del enlace */
-}
-
-/* Línea que aparecerá al hacer hover */
-.bar a::after {
-    content: ""; /* Contenido vacío para la línea */
-    position: absolute; /* Posición absoluta respecto al enlace */
-    left: 0; /* Comienza al inicio del enlace */
-    bottom: 0; /* Coloca la línea en la parte inferior del enlace */
-    width: 100%; /* Ancho de la línea igual al ancho del enlace menos 10px */
-    height: 2px; /* Grosor de la línea */
-    background: white; /* Color de la línea */
-    transform: scaleX(0); /* Comienza con la escala en 0 (oculto) */
-    transition: transform 0.3s ease; /* Transición suave para la aparición */
-}
-
-/* Efecto de aparición de la línea al hacer hover */
-.bar a:hover::after {
-    transform: scaleX(1); /* Escala a 1 al hacer hover (visible) */
-}
-
+/* MENU */
 .menu{
-    position: relative;
-}
-/* .carousel-item {
-  transition: none !important;
   position: relative;
-} */
+}
 
-/* Overlay styling */
-/* .carousel-overlay {
-  position: absolute;
+
+/* LA OPACIDAD DEL FONDO PARA CUANDO SE ABRE EL MENU */
+.overlay {
+  position: fixed;
   top: 0;
   left: 0;
+  right: 0;
+  bottom: 0;
+  background-color:var(--ff-opacity);
+  opacity: 0; /* Inicialmente invisible */
+  transition: opacity 0.3s ease; /* Transición suave */
+  z-index: 10; /* Detrás del botón y la barra */
+  visibility: hidden; /* Invisible por defecto */
+}
+
+
+/* MENU OCULTO IZQUIERDA */
+.bar {
+  position: fixed;
+  background-color: var(--clr-primary);
+  width: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow: hidden;
+  transition: width 0.3s ease;
+  z-index: 20;
+  padding: 10px 0;
+  align-items: flex-start;
+}
+
+
+/* BOTÓN DEL MENU */
+.menu-button {
+  position: fixed; /* Fijado */
+  top: 0;
+  left: 0;
+  width: 60px; /*Tamaño botón */
+  height: 90px; /* Tamaño botón */
+  cursor: pointer;
+  z-index: 30; /* Encima de todo*/
+  transition: transform 0.3s ease;
+}
+
+
+/* VIBRACIÓN ETIQEUTA */
+.vibrate {
+  animation: vibrate 0.3s ease-in-out;
+}
+@keyframes vibrate {
+  0% { transform: translateY(0); }
+  25% { transform: translateY(-3px); } 
+  50% { transform: translateY(3px); }  
+  75% { transform: translateY(-3px); }
+  100% { transform: translateY(0); }
+}
+
+
+/* CATEGORIAS MENU */
+.bar a {
+  color: var(--clr-white);
+  padding: 10px;
+  font-size: 14px;
+  text-align: center;
+  margin: 5px 0;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+.bar a::after {
+  content: ""; 
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--clr-white);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+.bar a:hover::after {
+  transform: scaleX(1);
+}
+
+
+.centered {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+/* FLECHA Y TITULO INICIO */
+.arrow-container {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  cursor: pointer;
+  z-index: 50; /*encima de las imágenes del carousel */
+}
+.arrow {
+  width: 40px;
+  height: 40px;
+  color: var(--clr-white);
+  transition: transform 0.3s ease;
+}
+.arrow:hover {
+  transform: translateY(5px);
+}
+.new-collection-text {
+  font-size: 14px;
+  color: var(--clr-white);
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+
+/* CAROUSEL INICIO  */
+#carouselinicio {
+  position: relative;
+}
+#carouselinicio .carousel-inner {
+  height: 100%;
+}
+#carouselinicio .carousel-item img {
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  z-index: 3;
-} */
-
-/* General image styling */
-/* #galleryCarousel1 .carousel-item img,
-#galleryCarousel2 .carousel-item img,
-#galleryCarousel3 .carousel-item img {
-  border: 3px solid black;
-  padding-bottom: 40px;
-  background-color: transparent;
-  z-index: 2;
-} */
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .carousel-overlay {
-    background-color: rgba(0, 0, 0, 0.6); /* Increase overlay opacity */
-  }
-  .collection-text {
-    font-size: 1.2rem; /* Adjust text size for smaller screens */
-  }
+  object-fit: cover;
 }
-.collection-text {
+.myCarouselMenu {
   position: absolute;
-  top: 0;
-  left: 0;
-  font-size: 60px; /* Ajusta el tamaño de la letra */
-  color: rgba(0, 0, 0); /* Color negro translúcido para un efecto sutil */
-  z-index: 1; /* Asegura que el texto esté detrás de la imagen */
-  pointer-events: none; /* Evita que el texto sea interactivo */
-}
-
-
-
-
-/* .container {
-    text-align: center;
-    color: white;
-  } */
-.centered {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-
-  .wrapper {
-    background-color: #0004ff;
-    position: relative;
-    overflow: hidden; /* Oculta el contenido que se sale del contenedor */
-    width: 100%;
-    white-space: nowrap; /* Mantiene todo en una sola línea */
-  }
-  
-  .wrapper ul {
-    display: inline-flex; /* Asegura que los elementos estén en una sola línea */
-    list-style: none;
-    padding-left: 0;
-    margin: 0; /* Elimina márgenes para que no afecten el espacio */
-  }
-  
-  .wrapper li {
-    margin: 0 50px; /* Espacio entre cada ítem */
-    font-size: 2em;
-    display: inline-block;
-  }
-  
-  .marquee {
-    display: inline-flex;
-    animation: marquee 20s linear infinite; /* Más lenta y continua */
-  }
-  
-  .marquee2 {
-    display: inline-flex;
-    animation: marquee 20s linear infinite; /* Más lenta y continua */
-    position: absolute;
-    top: 0;
-  }
-  
-  @keyframes marquee {
-    from {
-      transform: translateX(0); /* Empieza desde el principio */
-    }
-    to {
-      transform: translateX(-50%); /* Se desplaza hacia la izquierda */
-    }
-  }
-  
- /* Contenedor de la flecha y el texto en la parte superior del carousel */
-.arrow-container {
-    position: absolute;
-    top: 30px; /* Mueve la flecha y el texto a la parte superior */
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    cursor: pointer;
-    z-index: 50; /* Asegura que esté encima de las imágenes del carousel */
-  }
-  
-  .new-collection-text {
-    font-size: 14px;
-    color: white;
-    margin-bottom: 5px; /* Espaciado entre el texto y la flecha */
-    text-transform: uppercase;
-    letter-spacing: 2px;
-  }
-  
-  .arrow {
-    width: 40px;
-    height: 40px;
-    color: white;
-    transition: transform 0.3s ease;
-  }
-  
-  .arrow:hover {
-    transform: translateY(5px); /* Mueve la flecha hacia abajo cuando pases el ratón */
-  }
-
-  .new-drop {
-    margin-top: 20px; /* Espacio superior */
-    color: #0004ff;
-    margin-bottom: 5px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-weight: 800;
-    padding: 1.5rem!important;
-}
-
-.countdown{
-    text-align: center;
-    margin-top: 2px !important;
-    background-color: #ed6a42;
-
-}
-/* Estilo para asegurar que el título esté alineado con el carrusel */
-@media (max-width: 768px) {
-    .new-drop {
-        font-size: 1.25rem; /* Tamaño de fuente más pequeño en dispositivos más pequeños */
-    }
-}
-
-@media (max-width: 576px) {
-    .new-drop {
-        font-size: 1rem; /* Tamaño de fuente más pequeño en dispositivos extra pequeños */
-    }
-}
-  
-  
-  
-
-
-
-
-
-
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        --clr-primary: #202302;
-        --clr-secondary: #00100d;
-        --clr-accent: #ff7750;
-        --background: var(--clr-dark);
-        --foreground: var(--clr-light);
-    }
-}
-
-.subtitle {
-    max-width: 600px;
-}
-
-/* .btn-group {
-    margin: 2rem 0;
-    display: block !important;
-}
-
-.btn {
-    padding: 1rem 2rem;
-    text-decoration: none;
-    text-transform: uppercase;
-    border-radius: 5px;
-    position: relative;
-    display: inline-block !important;
-    line-height: 1;
-}
-
-.btn + .btn {
-    margin-left: 1rem;
-}
-
-.btn-secondary {
-    background: var(--foreground);
-    color: var(--background);
-}
-
-.btn-accent {
-    background: var(--clr-accent);
-    color: var(--foreground);
-}
-
-.btn::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border: var(--foreground) 2px solid;
-    left: 0;
-    top: 0;
-    border-radius: inherit;
-    z-index: -1;
-} */
-
-.intro {
-    height: 80vh;
-    padding: 10rem 0;
-    display: grid;
-    grid-template-columns: minmax(2em, 1fr) minmax(80vw, 860px) minmax(2em, 1fr);
-    background: linear-gradient(120deg, var(--clr-primary), var(--clr-secondary));
-    align-content: center;
-}
-
-.intro > * {
-    grid-column: 2/3;
-}
-
-
-
-
-figure{
-  padding: 10%;
-}
-
-
-
-.carousel-flickiti {
-  width: 50%; /* Ajusta este valor para hacer el carrusel más estrecho */
-  max-width: 200px; /* Limita el ancho máximo para mejorar la calidad visual */
-  margin: 0 auto; /* Centra el carrusel horizontalmente */
-}
-
-/* Estilo de las celdas del carrusel */
-.carousel-cell {
-  width: 80%; /* Ocupa el 100% del ancho disponible en pantallas pequeñas */
-  margin: 0 8px; /* Espacio entre imágenes */
-  aspect-ratio: 1 / 1; /* Mantiene la forma cuadrada */
-  overflow: hidden;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color:var(--ff-opacity);
+  color: var(--clr-white);
+  padding: 5px 10px;
   border-radius: 5px;
 }
 
-/* Imágenes dentro del carrusel */
+
+/* WRAPPER */
+.wrapper {
+  background-color: var(--clr-secondary);
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  white-space: nowrap;
+}
+.wrapper ul {
+  display: inline-flex;
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+} 
+.wrapper li {
+  margin: 0 50px;
+  font-size: 2em;
+  display: inline-block;
+  color: var(--clr-white);
+} 
+.marquee {
+  display: inline-flex;
+  animation: marquee 20s linear infinite;
+}
+@keyframes marquee {
+  from {
+    transform: translateX(0); /* Empieza desde el principio */
+  }
+  to {
+    transform: translateX(-50%); /* Se desplaza hacia la izquierda */
+  }
+}
+
+
+/* CAROUSEL Y GALERIA NEW COLLECTION */
+#galleryCarousel1 .carousel-item img,
+#galleryCarousel2 .carousel-item img,
+#galleryCarousel3 .carousel-item img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+.collection-text {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: var(--clr-white);
+  padding: 5px;
+  border-radius: 5px;
+}
+#galleryCarousel1 .carousel-item,
+#galleryCarousel2 .carousel-item,
+#galleryCarousel3 .carousel-item {
+  position: relative;
+  overflow: hidden; 
+}
+
+
+
+/* SECCIÓN NEW DROP */
+.new-drop {
+  margin-top: 20px;
+  color: var(--clr-secondary);
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 800;
+  padding: 1.5rem!important;
+}
+
+
+/* CUENTA ATRÁS */
+.countdown{
+  text-align: center;
+  margin-top: 2px !important;
+  background-color: var(--clr-primary);
+}
+
+
+/* CAROUSEL NEWDROP */
+.carousel-flickity figure{
+  padding: 10%;
+}
+.carousel-flickiti {
+  width: 50%; 
+  max-width: 200px;
+  margin: 0 auto;
+}
+.carousel-cell {
+  width: 30%; 
+  margin: 0 8px; 
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 5px;
+}
 .carousel-cell img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ajusta la imagen para que llene el cuadrado */
+  object-fit: cover;
 }
 
-/* Media Queries para cambiar el número de imágenes visibles según el tamaño de la pantalla */
-@media (min-width: 768px) {
+
+
+
+
+
+
+/* MEDIA-QUERIS */
+@media (max-width: 1024px) {
+  /* .carousel-cell {
+    width: 30%;
+  } */
+}
+
+
+
+@media (max-width: 768px) {
   .carousel-cell {
-      width: 48%; /* Dos imágenes visibles en pantallas medianas */
+    width: 80%;
+}
+  .new-drop {
+    font-size: 1.25rem; 
+  }
+  .wrapper li {
+    font-size: 1em;
+    margin: 0 20px;
+  } 
+
+}
+
+
+
+@media (max-width: 576px) {
+  .new-drop {
+      font-size: 1rem;
   }
 }
 
-@media (min-width: 1024px) {
-  .carousel-cell {
-      width: 30%; /* Tres imágenes visibles en pantallas grandes */
-  }
-}
+

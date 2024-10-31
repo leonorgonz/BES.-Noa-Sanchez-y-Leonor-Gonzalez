@@ -1,13 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Assistant:400,700|Playfair+Display:900");
 
 
-*{
-    font-family: "Inter", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 800;
-    font-style: normal; 
-    
-}
+
 /* GRUPO DE LOS COLORES, SI PONES VAR(), ELIGES LA OPCIÓN DE ESTOS COLORES QUE YA ESTAN NOMBRADOS,IMPORTANTEEEEEE */
 :root {
   --clr-black: #000000;
@@ -16,7 +10,7 @@
   --clr-secondary: #0004ff;
   --background:  aliceblue;
   --ff-title: "Inter", sans-serif;
-  /* --ff-body: "Assistant", sans-serif; */
+  --ff-body: "Inter", serif;
   --ff-opacity: rgba(0, 0, 0, 0.5);
 }
 body {
@@ -99,6 +93,7 @@ body {
 .bar a {
   color: var(--clr-white);
   padding: 10px;
+  font-family: var(--ff-body);
   font-size: 14px;
   text-align: center;
   margin: 5px 0;
@@ -137,7 +132,7 @@ body {
   transform: translateX(-50%);
   text-align: center;
   cursor: pointer;
-  z-index: 50; /*encima de las imágenes del carousel */
+  z-index: 1; /*encima de las imágenes del carousel */
 }
 .arrow {
   width: 40px;
@@ -149,11 +144,12 @@ body {
   transform: translateY(5px);
 }
 .new-collection-text {
+  font-family: var(--ff-title);
   font-size: 14px;
   color: var(--clr-white);
   margin-bottom: 5px;
-  text-transform: uppercase;
   letter-spacing: 2px;
+  font-weight: bold;
 }
 
 
@@ -191,6 +187,8 @@ body {
 }
 .wrapper ul {
   display: inline-flex;
+  font-family: var(--ff-title);
+  font-weight: bold;
   list-style: none;
   padding-left: 0;
   margin: 0;
@@ -216,6 +214,53 @@ body {
 
 
 /* CAROUSEL Y GALERIA NEW COLLECTION */
+.carousel-container {
+  position: relative;
+  padding-bottom: 50px; /* Espaciado interno para no tapar el contenido */
+  overflow: hidden; /* Ocultar el desbordamiento */
+  
+}
+
+.carousel-wrapper {
+  border: 2px solid black; /* Borde negro */
+  margin: 10px 0; /* Espaciado entre los carouseles */
+  background-color: transparent; /* Sin fondo */
+  position: relative; /* Para manejar el posicionamiento de elementos internos */
+}
+.product-info {
+  position: absolute;
+  bottom: 10px; /* Alineación al fondo del recuadro */
+  left: 10px;
+  right: 10px;
+  color: var(--clr-black); /* Color del texto */
+  padding: 10px;
+  font-size: 0.9em; /* Ajuste de tamaño de fuente */
+}
+
+/* Estilo para el nombre y el precio */
+.product-info h4 {
+  margin: 0;
+  font-size: 1.1em; /* Tamaño del nombre */
+}
+
+/* Estilo para el precio */
+.product-info .price {
+  font-weight: bold;
+}
+
+/* Contenedor de los colores */
+.product-info .colors {
+  display: flex;
+  gap: 5px;
+}
+
+/* Estilo de cada muestra de color */
+.product-info .color-sample {
+  width: 20px; /* Tamaño del cuadrado de color */
+  height: 20px;
+}
+
+/* CAROUSEL Y GALERIA NEW COLLECTION */
 #galleryCarousel1 .carousel-item img,
 #galleryCarousel2 .carousel-item img,
 #galleryCarousel3 .carousel-item img {
@@ -223,14 +268,15 @@ body {
   height: auto;
   object-fit: contain;
 }
+
 .collection-text {
   position: absolute;
   top: 10px;
   left: 10px;
   color: var(--clr-white);
   padding: 5px;
-  border-radius: 5px;
 }
+
 #galleryCarousel1 .carousel-item,
 #galleryCarousel2 .carousel-item,
 #galleryCarousel3 .carousel-item {
@@ -238,48 +284,69 @@ body {
   overflow: hidden; 
 }
 
+.background-text {
+  position: absolute;
+  top: 50px; /* Cerca del margen superior */
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--ff-title);
+  font-size: 3vw; /* Ajuste automático de tamaño */
+  color: var(--clr-primary); /* Fondo opaco para que no distraiga */
+  font-weight: bold;
+  text-align: center;
+  line-height: 1; /* Espaciado más ajustado entre líneas */
+  pointer-events: none;
+}
+
 
 
 /* SECCIÓN NEW DROP */
+.background{
+  background-color: var(--clr-primary);
+  padding-top: 1rem;
+}
 .new-drop {
-  margin-top: 20px;
-  color: var(--clr-secondary);
-  margin-bottom: 5px;
-  text-transform: uppercase;
+  color: var(--clr-white);
+  font-family: var(--ff-title);
   letter-spacing: 2px;
   font-weight: 800;
-  padding: 1.5rem!important;
+  margin: 70px;
 }
 
+.new-drop h2{
+  color: var(--clr-secondary);
+  margin: 0%;
+}
 
 /* CUENTA ATRÁS */
 .countdown{
   text-align: center;
-  margin-top: 2px !important;
+  font-family: var(--ff-body);
+  padding-top: 2px;
   background-color: var(--clr-primary);
+  font-weight: 800;
 }
 
 
-/* CAROUSEL NEWDROP */
-.carousel-flickity figure{
-  padding: 10%;
+/* CAROUSEL NEWDROP retocar lo del carrousel porque no me gusta como esta y meter mas fotos */
+.carousel-flickity {
+  width: 100%; /* Ocupar todo el ancho del contenedor */
+  max-width: 1200px;
+  margin: 0 auto; /* Centrar el carrusel */
 }
-.carousel-flickiti {
-  width: 50%; 
-  max-width: 200px;
-  margin: 0 auto;
-}
+
+/* Celdas del carrusel */
 .carousel-cell {
-  width: 30%; 
-  margin: 0 8px; 
-  aspect-ratio: 1 / 1;
+  width: calc((100% / 3) - 2px); /* Dividir en tres partes y restar el margen */
+  margin-right: 5px; /* Espaciado de 2px entre cada celda */
   overflow: hidden;
-  border-radius: 5px;
 }
+
+/* Imágenes dentro de cada celda */
 .carousel-cell img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: 80%;
+  height: auto;
+  object-fit: cover; /* Asegura que la imagen se ajuste a la celda sin deformarse */
 }
 
 
@@ -299,7 +366,7 @@ body {
 
 @media (max-width: 768px) {
   .carousel-cell {
-    width: 80%;
+    width: 50%;
 }
   .new-drop {
     font-size: 1.25rem; 
@@ -308,7 +375,21 @@ body {
     font-size: 1em;
     margin: 0 20px;
   } 
-
+  .menu-button {
+    width: 50px; /*Tamaño botón */
+    height: 80px; /* Tamaño botón */
+  }
+  .arrow {
+    width: 20px;
+    height: 20px;
+  }
+  .new-collection-text {
+    font-size: 10px;
+    margin-bottom: 1px;
+  }
+  .background-text {
+    font-size: 6vw; /* Aumenta el tamaño del texto en pantallas pequeñas */
+}
 }
 
 
@@ -316,6 +397,19 @@ body {
 @media (max-width: 576px) {
   .new-drop {
       font-size: 1rem;
+  }
+  .menu-button {
+    width: 40px; /*Tamaño botón */
+    height: 60px; /* Tamaño botón */
+  }
+  .new-collection-text {
+    margin-bottom: 0px;
+  }
+  .arrow-container {
+    top: 20px;
+  }
+  .carousel-cell {
+    width: 80%; /* En móviles, cada celda ocupa un 80% del ancho para mejor visualización */
   }
 }
 

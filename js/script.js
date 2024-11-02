@@ -92,6 +92,7 @@ $(document).ready(function () {
     setupCarousel('#galleryCarousel1');
     setupCarousel('#galleryCarousel2');
     setupCarousel('#galleryCarousel3');
+    
 });
 
 
@@ -130,4 +131,13 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCountdown();
     // Refresh every second
     setInterval(updateCountdown, MILLISECONDS_OF_A_SECOND);
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    var flkty = new Flickity('.carousel-flickity', {
+        wrapAround: true,
+        cellAlign: 'left', // Cambiar a 'center' si es necesario
+        contain: true,
+        imagesLoaded: true // Asegúrate de que las imágenes estén cargadas antes de ajustar
+    });
 });

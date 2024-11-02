@@ -216,8 +216,7 @@ body {
 /* CAROUSEL Y GALERIA NEW COLLECTION */
 .carousel-container {
   position: relative;
-  padding-bottom: 50px; /* Espaciado interno para no tapar el contenido */
-  overflow: hidden; /* Ocultar el desbordamiento */
+  overflow: hidden;
   
 }
 
@@ -228,36 +227,53 @@ body {
   position: relative; /* Para manejar el posicionamiento de elementos internos */
 }
 .product-info {
-  position: absolute;
-  bottom: 10px; /* Alineación al fondo del recuadro */
-  left: 10px;
-  right: 10px;
-  color: var(--clr-black); /* Color del texto */
-  padding: 10px;
-  font-size: 0.9em; /* Ajuste de tamaño de fuente */
+  color: var(--clr-black);
+  font-size: 0.9em;
+  padding-left: 9em;
 }
 
-/* Estilo para el nombre y el precio */
-.product-info h4 {
-  margin: 0;
-  font-size: 1.1em; /* Tamaño del nombre */
-}
-
-/* Estilo para el precio */
-.product-info .price {
-  font-weight: bold;
-}
-
-/* Contenedor de los colores */
+/* Contenedor de los colores - posiciona abajo a la izquierda */
 .product-info .colors {
-  display: flex;
   gap: 5px;
+  border: 1px solid black;
+  margin: 0px;
+  padding: 3px;
+  display: flex;
+  justify-content: flex-end;
 }
 
 /* Estilo de cada muestra de color */
 .product-info .color-sample {
-  width: 20px; /* Tamaño del cuadrado de color */
-  height: 20px;
+  width: 40px;
+  height: 15px;
+}
+
+
+/* Estilo para el nombre de la prenda */
+.product-info h4 {
+  margin: 0px;
+  font-size: 0.9em;
+  font-family: var(--ff-body);
+  border: 1px solid black;
+  padding: 2px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Estilo para el precio */
+.product-info .price {
+  font-size: 0.9em;
+  margin: 0px;
+  font-family: var(--ff-body);
+  border: 1px solid black;
+  padding: 2px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.details{
+  margin: 2px;
+  border: 1.5px solid black;
 }
 
 /* CAROUSEL Y GALERIA NEW COLLECTION */
@@ -303,14 +319,14 @@ body {
 /* SECCIÓN NEW DROP */
 .background{
   background-color: var(--clr-primary);
-  padding-top: 1rem;
+  padding: 1em;
 }
 .new-drop {
   color: var(--clr-white);
   font-family: var(--ff-title);
   letter-spacing: 2px;
   font-weight: 800;
-  margin: 70px;
+  margin: 1em 7em;
 }
 
 .new-drop h2{
@@ -330,23 +346,61 @@ body {
 
 /* CAROUSEL NEWDROP retocar lo del carrousel porque no me gusta como esta y meter mas fotos */
 .carousel-flickity {
-  width: 100%; /* Ocupar todo el ancho del contenedor */
+  width: 100%;
   max-width: 1200px;
-  margin: 0 auto; /* Centrar el carrusel */
+  margin: 0 auto;
 }
 
-/* Celdas del carrusel */
+/* Ajuste de las celdas del carrusel */
 .carousel-cell {
-  width: calc((100% / 3) - 2px); /* Dividir en tres partes y restar el margen */
-  margin-right: 5px; /* Espaciado de 2px entre cada celda */
-  overflow: hidden;
+  padding: 0 5px;
+  box-sizing: border-box;
 }
 
-/* Imágenes dentro de cada celda */
+/* Ajuste del tamaño fijo para todas las imágenes */
 .carousel-cell img {
-  width: 80%;
-  height: auto;
-  object-fit: cover; /* Asegura que la imagen se ajuste a la celda sin deformarse */
+  width: 100%;       /* Ajusta el ancho de la imagen al 100% del contenedor */
+  height: 299px;     /* Altura fija para asegurar que todas las imágenes sean iguales */
+  object-fit: cover; /* Recorta la imagen para ajustarse al contenedor sin deformarse */
+}
+
+/* Estilos del <figure> */
+.carousel-cell figure {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  height: 100%;
+}
+
+/* Consultas de medios para ajustar el número de imágenes visibles según el ancho de la pantalla */
+
+@media (min-width: 1200px) {
+  /* 4 imágenes visibles en pantallas grandes */
+  .carousel-cell {
+    width: calc(25% - 10px);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  /* 3 imágenes visibles en pantallas medianas */
+  .carousel-cell {
+    width: calc(33.333% - 10px);
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  /* 2 imágenes visibles en pantallas pequeñas */
+  .carousel-cell {
+    width: calc(50% - 10px);
+  }
+}
+
+@media (max-width: 575px) {
+  /* 1 imagen visible en pantallas extra pequeñas */
+  .carousel-cell {
+    width: 100%;
+  }
 }
 
 
@@ -356,18 +410,35 @@ body {
 
 
 /* MEDIA-QUERIS */
-@media (max-width: 1024px) {
-  /* .carousel-cell {
-    width: 30%;
-  } */
+@media (max-width: 1400px) {
+  .new-drop{
+    margin: 1em 6em;
+  }
+ 
 }
-
-
+@media (max-width: 1466px) {
+  .new-drop{
+    margin: 1em 4em;
+  }
+ 
+}
+@media (max-width: 1200px) {
+  .new-drop{
+    margin: 1em 2em;
+  }
+ 
+}
+@media (max-width: 992px) {
+  .new-drop{
+    margin: 1em 1.7em;
+  }
+ 
+}
 
 @media (max-width: 768px) {
-  .carousel-cell {
+  /* .carousel-cell {
     width: 50%;
-}
+} */
   .new-drop {
     font-size: 1.25rem; 
   }
@@ -408,9 +479,9 @@ body {
   .arrow-container {
     top: 20px;
   }
-  .carousel-cell {
-    width: 80%; /* En móviles, cada celda ocupa un 80% del ancho para mejor visualización */
-  }
+  /* .carousel-cell {
+    width: 80%; 
+  } */
 }
 
 

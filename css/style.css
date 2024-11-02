@@ -8,7 +8,7 @@
   --clr-white: #ffffff;
   --clr-primary: #ed6a42;
   --clr-secondary: #0004ff;
-  --background:  aliceblue;
+  --background:  rgb(255, 255, 255);
   --ff-title: "Inter", sans-serif;
   --ff-body: "Inter", serif;
   --ff-opacity: rgba(0, 0, 0, 0.5);
@@ -25,7 +25,12 @@ body {
 }
 
 
+
+
+
+/* INCIOOOOOOOOOOOOOOOOOO */
 /* MENU */
+
 .menu{
   position: relative;
 }
@@ -217,22 +222,20 @@ body {
 .carousel-container {
   position: relative;
   overflow: hidden;
-  
 }
-
 .carousel-wrapper {
-  border: 2px solid black; /* Borde negro */
-  margin: 10px 0; /* Espaciado entre los carouseles */
-  background-color: transparent; /* Sin fondo */
-  position: relative; /* Para manejar el posicionamiento de elementos internos */
+  border: 2px solid black;
+  margin: 10px 0;
+  background-color: transparent;
+  position: relative;
 }
+/* info producto */
 .product-info {
   color: var(--clr-black);
   font-size: 0.9em;
-  padding-left: 9em;
+  padding-left: 0px;
 }
-
-/* Contenedor de los colores - posiciona abajo a la izquierda */
+/* colores */
 .product-info .colors {
   gap: 5px;
   border: 1px solid black;
@@ -241,15 +244,10 @@ body {
   display: flex;
   justify-content: flex-end;
 }
-
-/* Estilo de cada muestra de color */
 .product-info .color-sample {
   width: 40px;
   height: 15px;
 }
-
-
-/* Estilo para el nombre de la prenda */
 .product-info h4 {
   margin: 0px;
   font-size: 0.9em;
@@ -259,8 +257,6 @@ body {
   display: flex;
   justify-content: flex-end;
 }
-
-/* Estilo para el precio */
 .product-info .price {
   font-size: 0.9em;
   margin: 0px;
@@ -270,13 +266,14 @@ body {
   display: flex;
   justify-content: flex-end;
 }
-
 .details{
   margin: 2px;
   border: 1.5px solid black;
 }
+.mb-4 {
+  margin-bottom: 0 !important;
+}
 
-/* CAROUSEL Y GALERIA NEW COLLECTION */
 #galleryCarousel1 .carousel-item img,
 #galleryCarousel2 .carousel-item img,
 #galleryCarousel3 .carousel-item img {
@@ -284,7 +281,6 @@ body {
   height: auto;
   object-fit: contain;
 }
-
 .collection-text {
   position: absolute;
   top: 10px;
@@ -292,25 +288,23 @@ body {
   color: var(--clr-white);
   padding: 5px;
 }
-
 #galleryCarousel1 .carousel-item,
 #galleryCarousel2 .carousel-item,
 #galleryCarousel3 .carousel-item {
   position: relative;
   overflow: hidden; 
 }
-
 .background-text {
   position: absolute;
-  top: 50px; /* Cerca del margen superior */
+  top: 50px;
   left: 50%;
   transform: translateX(-50%);
   font-family: var(--ff-title);
-  font-size: 3vw; /* Ajuste automático de tamaño */
-  color: var(--clr-primary); /* Fondo opaco para que no distraiga */
+  font-size: 3.5vw;
+  color: var(--clr-primary);
   font-weight: bold;
   text-align: center;
-  line-height: 1; /* Espaciado más ajustado entre líneas */
+  line-height: 1;
   pointer-events: none;
 }
 
@@ -328,11 +322,13 @@ body {
   font-weight: 800;
   margin: 1em 7em;
 }
-
 .new-drop h2{
   color: var(--clr-secondary);
+  font-size: 30px;
+  font-weight: 900;
   margin: 0%;
 }
+
 
 /* CUENTA ATRÁS */
 .countdown{
@@ -340,71 +336,122 @@ body {
   font-family: var(--ff-body);
   padding-top: 2px;
   background-color: var(--clr-primary);
-  font-weight: 800;
+  font-weight: 600;
+  font-size: 18px;
 }
 
 
-/* CAROUSEL NEWDROP retocar lo del carrousel porque no me gusta como esta y meter mas fotos */
+/* CAROUSEL NEWDROP */
 .carousel-flickity {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
 }
-
-/* Ajuste de las celdas del carrusel */
 .carousel-cell {
+  width: 250px;
+  height: 250px;
   padding: 0 5px;
   box-sizing: border-box;
 }
-
-/* Ajuste del tamaño fijo para todas las imágenes */
 .carousel-cell img {
-  width: 100%;       /* Ajusta el ancho de la imagen al 100% del contenedor */
-  height: 299px;     /* Altura fija para asegurar que todas las imágenes sean iguales */
-  object-fit: cover; /* Recorta la imagen para ajustarse al contenedor sin deformarse */
+  width: 100%; 
+  height: 100%;
+  object-fit: cover;
+}
+/* FIN INICIOOOOOOOOO */
+
+
+
+
+/* FOOTER */
+.footer {
+  background-color: var(--clr-secondary);
+  padding: 30px 15px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 300%;
+  height: 300%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1), rgba(255,255,255,0));
+  transform: rotate(45deg);
+  animation: lightMove 6s infinite linear;
 }
 
-/* Estilos del <figure> */
-.carousel-cell figure {
+/* Logo */
+.footer-logo {
+  font-size: 60px;
+  font-weight: 800;
+  color:var(--clr-primary);
+  text-decoration: none;
+  transition: color 0.3s;
+  margin-left: 30px;
+}
+.footer-logo:hover {
+  color:var(--clr-white);
+}
+
+/* Lema */
+.footer-tagline {
+  font-size: 16px;
+  color: var(--clr-white);
+  margin-left: 30px;
+  font-family: var(--ff-title);
+}
+
+/* Navegación */
+.footer-nav {
   display: flex;
   justify-content: center;
-  align-items: center;
-  margin: 0;
-  height: 100%;
+  gap: 15px;
+  margin: 10px 0;
+  font-family: var(--ff-body);
+}
+.footer-link {
+  color: var(--clr-white);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s, transform 0.3s;
+}
+.footer-link:hover {
+  color: var(--clr-primary);
+  transform: scale(1.1);
 }
 
-/* Consultas de medios para ajustar el número de imágenes visibles según el ancho de la pantalla */
-
-@media (min-width: 1200px) {
-  /* 4 imágenes visibles en pantallas grandes */
-  .carousel-cell {
-    width: calc(25% - 10px);
-  }
+/* RRRSS */
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 10px;
+}
+.social-icon i {
+  width: 30px;
+  height: 30px;
+  color: var(--clr-primary);
+}
+.social-icon:hover i {
+  transform: scale(1.5);
 }
 
-@media (min-width: 768px) and (max-width: 1199px) {
-  /* 3 imágenes visibles en pantallas medianas */
-  .carousel-cell {
-    width: calc(33.333% - 10px);
-  }
+/* Derechos de autor */
+.footer-bottom {
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--clr-white);
+  padding-top: 10px;
+  border-top: 1px solid var(--clr-white);
+  margin-left: 30px;
+  margin-right: 30px;
+  font-family: var(--ff-body);
+  padding-top: 10px;
 }
-
-@media (min-width: 576px) and (max-width: 767px) {
-  /* 2 imágenes visibles en pantallas pequeñas */
-  .carousel-cell {
-    width: calc(50% - 10px);
-  }
-}
-
-@media (max-width: 575px) {
-  /* 1 imagen visible en pantallas extra pequeñas */
-  .carousel-cell {
-    width: 100%;
-  }
-}
-
-
-
+/* FIN FOOTER */
 
 
 
@@ -414,33 +461,30 @@ body {
   .new-drop{
     margin: 1em 6em;
   }
- 
 }
+
 @media (max-width: 1466px) {
   .new-drop{
     margin: 1em 4em;
   }
- 
 }
+
 @media (max-width: 1200px) {
   .new-drop{
     margin: 1em 2em;
   }
- 
 }
+
 @media (max-width: 992px) {
   .new-drop{
     margin: 1em 1.7em;
   }
- 
 }
 
 @media (max-width: 768px) {
-  /* .carousel-cell {
-    width: 50%;
-} */
   .new-drop {
     font-size: 1.25rem; 
+    margin: 1em 1.25em;
   }
   .wrapper li {
     font-size: 1em;
@@ -459,15 +503,18 @@ body {
     margin-bottom: 1px;
   }
   .background-text {
-    font-size: 6vw; /* Aumenta el tamaño del texto en pantallas pequeñas */
+    font-size: 7vw;
+  }
+  .carousel-cell {
+    width: 300px; 
+    /* 1FOTOENPEQUEÑO */
+  }
 }
-}
-
-
 
 @media (max-width: 576px) {
   .new-drop {
-      font-size: 1rem;
+    font-size: 1rem;
+    margin: 1em 2.8em;
   }
   .menu-button {
     width: 40px; /*Tamaño botón */
@@ -479,9 +526,26 @@ body {
   .arrow-container {
     top: 20px;
   }
-  /* .carousel-cell {
-    width: 80%; 
-  } */
+  .carousel-wrapper {
+    margin: 10px 30px;
+  }
+  .background-text {
+    font-size: 10vw;
+    top: 60px;
+}
 }
 
 
+
+@media (min-width: 992px) {
+  /* 3 FOTOS en grande*/
+  .carousel-cell {
+    width: 299px;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  /* 2 FOTOS en mediano */
+  .carousel-cell {
+    width: calc(50% - 10px);
+  }
+}

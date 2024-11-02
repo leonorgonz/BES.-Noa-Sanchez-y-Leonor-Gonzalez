@@ -3,7 +3,7 @@ const html = document.querySelector("html");
 // Data aos
 AOS.init();
 
-
+// INICIOOOOOOOOOOOOOOO
 // MENU BOTÓN
 const menuButton = document.getElementById('menuButton');
         const bar = document.getElementById('bar');
@@ -136,8 +136,11 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('DOMContentLoaded', function () {
     var flkty = new Flickity('.carousel-flickity', {
         wrapAround: true,
-        cellAlign: 'left', // Cambiar a 'center' si es necesario
+        cellAlign: 'left',
         contain: true,
-        imagesLoaded: true // Asegúrate de que las imágenes estén cargadas antes de ajustar
+        imagesLoaded: true
     });
 });
+
+
+// FIN INICIOOOOOOOO

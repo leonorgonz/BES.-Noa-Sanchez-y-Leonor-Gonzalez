@@ -1,0 +1,239 @@
+/* GRUPO DE LOS COLORES, SI PONES VAR(), ELIGES LA OPCIÓN DE ESTOS COLORES QUE YA ESTAN NOMBRADOS,IMPORTANTEEEEEE */
+:root {
+    --clr-black: #000000;
+    --clr-white: #ffffff;
+    --clr-primary: #ed6a42;
+    --clr-secondary: #0004ff;
+    --background:  rgb(255, 255, 255);
+    --ff-title: "Inter", sans-serif;
+    --ff-body: "Inter", serif;
+    --ff-opacity: rgba(0, 0, 0, 0.5);
+  }
+
+
+  body {
+    margin: 0; 
+    height: 100vh;
+    /* PARA EL SCROLL */
+    overflow: auto;
+    background-color: rgb(198, 205, 219);
+    font-size: 18px;
+  }
+
+
+/* MENU */
+.menu{
+    position: relative;
+  }
+  
+  
+  /* LA OPACIDAD DEL FONDO PARA CUANDO SE ABRE EL MENU */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color:var(--ff-opacity);
+    opacity: 0; /* Inicialmente invisible */
+    transition: opacity 0.3s ease; /* Transición suave */
+    z-index: 10; /* Detrás del botón y la barra */
+    visibility: hidden; /* Invisible por defecto */
+  }
+  
+  
+  /* MENU OCULTO IZQUIERDA */
+  .bar {
+    position: fixed;
+    background-color: var(--clr-primary);
+    width: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow: hidden;
+    transition: width 0.3s ease;
+    z-index: 20;
+    padding: 10px 0;
+    align-items: flex-start;
+  }
+  
+  
+  /* BOTÓN DEL MENU */
+  .menu-button {
+    position: fixed; /* Fijado */
+    top: 0;
+    left: 0;
+    width: 60px; /*Tamaño botón */
+    height: 90px; /* Tamaño botón */
+    cursor: pointer;
+    z-index: 30; /* Encima de todo*/
+    transition: transform 0.3s ease;
+  }
+  
+  
+  /* VIBRACIÓN ETIQEUTA */
+  .vibrate {
+    animation: vibrate 0.3s ease-in-out;
+  }
+  @keyframes vibrate {
+    0% { transform: translateY(0); }
+    25% { transform: translateY(-3px); } 
+    50% { transform: translateY(3px); }  
+    75% { transform: translateY(-3px); }
+    100% { transform: translateY(0); }
+  }
+  
+  
+  /* CATEGORIAS MENU */
+  .bar a {
+    color: var(--clr-white);
+    padding: 10px;
+    font-family: var(--ff-body);
+    font-size: 14px;
+    text-align: center;
+    margin: 5px 0;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+  }
+  .bar a::after {
+    content: ""; 
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--clr-white);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+  .bar a:hover::after {
+    transform: scaleX(1);
+  }
+  
+  
+  .centered {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+
+/* TÍTULO CATÁLOGO */
+.titulo-catalogo {
+    font-size: 5rem;
+    font-family: "Inter", sans-serif;
+    text-align: left;
+    margin-top: 20px;
+    font-weight: 800;
+}
+
+/* Tamaño de pantalla mediano (tablets y dispositivos pequeños) */
+@media (max-width: 1024px) {
+    .titulo-catalogo {
+        font-size: 4rem;
+    }
+}
+
+/* Tamaño de pantalla pequeño (teléfonos móviles) */
+@media (max-width: 768px) {
+    .titulo-catalogo {
+        font-size: 3rem;
+    }
+}
+
+
+/* GALERIA */
+.gallery-img {
+    width: 100%;
+    height: auto;
+} 
+
+
+/*Estilos de la galería */
+.gallery-container {
+    top: -110px; 
+    position: relative;
+}  
+
+
+
+/* Contenedor para el efecto flip, ajustado al tamaño de la imagen de fondo */
+.flip-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilos del flip box */
+.flip-box {
+    perspective: 1000px;
+    width: 100%;
+    height: 105%;
+}
+
+
+.flip-box-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+/* Efecto de rotación al hacer hover */
+.flip-box:hover .flip-box-inner {
+    transform: rotateY(180deg);
+}
+
+/* Front y back para el efecto flip */
+.flip-box-front, .flip-box-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    overflow: hidden;
+} 
+
+
+/* Imagen de frente (imagen A) */
+.flip-box-front img {
+    width: 100%;
+    height: auto;
+}
+
+/* Imagen trasera (imagen B) */
+.flip-box-back {
+    transform: rotateY(180deg);
+}
+
+.flip-box-back img {
+    width: 100%;
+    height: auto;
+}
+
+
+/* Textos info catalogo */
+.product-info {
+    text-align: left;
+    font-size: 0.75rem;
+    font-family: inconsolata;
+    margin-top: 10px;
+    transition: color 0.3s ease, font-size 0.3s ease;
+    z-index: 1; /*Para asegurarnos de que el hover funcione correctamente  */
+    position: relative;
+    cursor: pointer;
+}  
+
+
+/* Efecto hover en el texto */
+.product-info:hover {
+    color: #0004ff;
+    font-weight: 700;
+}

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>CATÁLOGO</title>
+        <link rel="stylesheet" href="https://use.typekit.net/qhm8wqj.css" />
+        <!-- BOOTSTRAP -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+        <!-- AOS CSS -->
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <!-- CUSTOM css -->
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css\style-catalogo.css" />
+        <!-- FONTAWESOME -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <!-- JQUERY -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <!-- AOS JS -->
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <!-- ENLACE ANIMACIÓN typed.umd.js-->
+        <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+        <!-- flickiti -->
+        <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+        <!-- TIPOGRAFIAS -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+    </head>
+
+    <body>
+         <!-- Capa de fondo con opacidad -->
+         <div class="overlay" id="overlay"></div>
+         <!--ETIQUETA MENÚ-->
+         <img src="img/etiqueta.png" class="menu-button" alt="Menú" id="menuButton">
+             <!-- el contenedor menu tiene que tener position: relative; -->
+             <div id="menu">
+                 <!-- este div que contiene el teXto tiene que tener positIon: absolute;  -->
+                 <div id="bar" class="bar">
+                     <a href="#inicio">Inicio</a>
+                     <a href="#catalogo">Catálogo</a> 
+                     <a href="#contactanos">Contáctanos</a>
+                     <a href="#sobrenosotros">Sobre Nosotros</a>
+                 </div>
+             </div>
+
+             <div class="container mt-5">
+                <!-- Título del catálogo -->
+                <div class="row catalogo-header justify-content-center">
+                    <div class="col-12 text-center">
+                        <h1 class="titulo-catalogo">C A T Á<br>L O G O</h1>
+                    </div>
+                </div>
+            
+
+                <!-- GALERÍA PRODUCTOS-->
+                <div class="container gallery-container">
+                    <div class="row">
+                        <!-- Foto 1 -->
+                        <div class="col-12 col-md-6 col-lg-4 mb-4 position-relative">
+                            <div class="foto-fondo">
+                                <img src="img/Catálogo y prod/Medida_1.png" alt="Foto 1" class="gallery-img">
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-4 mb-4 position-relative">
+                                <p class="product-info">Camiseta Akuarel 25,99€</p>
+                            </div>
+                            
+                            <!-- Superposición con el efecto flip -->
+                            <div class="flip-overlay">
+                                <div class="flip-box">
+                                    <div class="flip-box-inner">
+                                        <div class="flip-box-front">
+                                            <img src="img\Catálogo y prod\Cami_1.png" alt="Imagen A">
+                                        </div>
+                                        <div class="flip-box-back">
+                                            <img src="img\Catálogo y prod\Seta_1.png" alt="Imagen B">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                
+                        <!-- Foto 2 -->
+                        <div class="col-12 col-md-6 col-lg-4 mb-4 position-relative">
+                            <div class="foto-fondo">
+                                <img src="img/Catálogo y prod/Medida_2.png" alt="Foto 2" class="gallery-img">
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-4 mb-4 position-relative">
+                                <p class="product-info">Camiseta 2 25,99€</p>
+                            </div>
+                            
+                            <div class="flip-overlay">
+                                <div class="flip-box">
+                                    <div class="flip-box-inner">
+                                        <div class="flip-box-front">
+                                            <img src="img\Catálogo y prod\Cami_2.png" alt="Imagen A">
+                                        </div>
+                                        <div class="flip-box-back">
+                                            <img src="img\Catálogo y prod\Seta_2.png" alt="Imagen B">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <!-- Foto 3 -->
+                        <div class="col-12 col-md-6 col-lg-4 mb-4 position-relative">
+                            <div class="foto-fondo">
+                                <img src="img/Catálogo y prod/Medida_3.png" alt="Foto 3" class="gallery-img">
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-4 mb-4 position-relative">
+                                <p class="product-info">Camiseta 3 25,99€</p>
+                            </div>
+                            
+                            <div class="flip-overlay">
+                                <div class="flip-box">
+                                    <div class="flip-box-inner">
+                                        <div class="flip-box-front">
+                                            <img src="img\Catálogo y prod\Cami_3.png" alt="Imagen A">
+                                        </div>
+                                        <div class="flip-box-back">
+                                            <img src="img\Catálogo y prod\Seta_3.png" alt="Imagen B">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <!-- Foto 4 -->
+                        <div class="col-12 col-md-6 col-lg-4 mb-4 position-relative">
+                            <div class="foto-fondo">
+                                <img src="img/Catálogo y prod/Medida_4.png" alt="Foto 4" class="gallery-img">
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-4 mb-4 position-relative">
+                                <p class="product-info">Camiseta 4 25,99€</p>
+                            </div>
+                            
+                            <div class="flip-overlay">
+                                <div class="flip-box">
+                                    <div class="flip-box-inner">
+                                        <div class="flip-box-front">
+                                            <img src="img\Catálogo y prod\Cami_4.png" alt="Imagen A">
+                                        </div>
+                                        <div class="flip-box-back">
+                                            <img src="img\Catálogo y prod\Seta_4.png" alt="Imagen B">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                         <!-- Foto 5 -->
+                         <div class="col-12 col-md-6 col-lg-4 mb-4 position-relative">
+                            <div class="foto-fondo">
+                                <img src="img\Catálogo y prod\Medida_5.png" alt="Foto 5" class="gallery-img">
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-4 mb-4 position-relative">
+                                <p class="product-info">Camiseta 5 25,99€</p>
+                            </div>
+                            
+                            <div class="flip-overlay">
+                                <div class="flip-box">
+                                    <div class="flip-box-inner">
+                                        <div class="flip-box-front">
+                                            <img src="img\Catálogo y prod\Cami_5.png" alt="Imagen A">
+                                        </div>
+                                        <div class="flip-box-back">
+                                            <img src="img\Catálogo y prod\Seta_5.png" alt="Imagen B">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                         <!-- Foto 6 -->
+                         <div class="col-12 col-md-6 col-lg-4 mb-4 position-relative">
+                            <div class="foto-fondo">
+                                <img src="img\Catálogo y prod\Medida_6.png" alt="Foto 6" class="gallery-img">
+                            </div>
+
+                            <div class="col-12 col-md-6 col-lg-4 mb-4 position-relative">
+                                <p class="product-info">Camiseta 6 25,99€</p>
+                            </div>
+                            
+                            <div class="flip-overlay">
+                                <div class="flip-box">
+                                    <div class="flip-box-inner">
+                                        <div class="flip-box-front">
+                                            <img src="img\Catálogo y prod\Cami_6.png" alt="Imagen A">
+                                        </div>
+                                        <div class="flip-box-back">
+                                            <img src="img\Catálogo y prod\Seta_6.png" alt="Imagen B">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+            
+
+
+                    </div>
+                </div>
+                
+                <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+                </body>

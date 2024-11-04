@@ -10,7 +10,7 @@
   --clr-secondary: #0004ff;
   --background:  rgb(255, 255, 255);
   --ff-title: "Inter", sans-serif;
-  --ff-body: "Inter", serif;
+  --ff-body: "inconsolata";
   --ff-opacity: rgba(0, 0, 0, 0.5);
 }
 body {
@@ -18,10 +18,10 @@ body {
   height: 100vh;
   /* PARA EL SCROLL */
   overflow: auto;
-  background-color: var(--background);
   padding-bottom: 4rem;
   font-size: 18px;
   line-height: 1.6;
+  background-color: rgb(198, 205, 219);
 }
 
 
@@ -358,13 +358,64 @@ body {
   height: 100%;
   object-fit: cover;
 }
+
+
+/* SOBRE NOSOTROS */
+.sobrenosotros-container {
+  background-color: var(--background);
+  color: var(--clr-black);
+  padding: 2rem 0;
+}
+.sobrenosotros-title {
+  font-family: var(--ff-title);
+  color: var(--clr-secondary);
+  margin-bottom: 1rem;
+  font-size: 30px;
+  font-weight: 900;
+  text-align: left !important;
+}
+.sobrenosotros-description {
+  font-family: var(--ff-body);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--clr-black);
+  max-width: 800px;
+  text-align: left !important;
+}
+.about-item {
+  text-align: center;
+}
+.about-title {
+  font-family: var(--ff-title);
+  font-size: 1.5rem;
+  color: var(--clr-primary);
+  margin-top: 0.5rem;
+}
+.about-text {
+  font-family: var(--ff-body);
+  font-size: 1rem;
+  color: var(--clr-black);
+  margin-top: 0.5rem;
+}
+.sobrenosotros-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+.sobrenosotros-container img:hover {
+  transform: scale(1.05);
+}
+
+
+
 /* FIN INICIOOOOOOOOO */
 
 
 
 
 /* FOOTER */
-.footer {
+footer {
   background-color: var(--clr-secondary);
   padding: 30px 15px;
   text-align: center;

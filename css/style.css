@@ -322,10 +322,14 @@ body {
   margin: 1em 7em;
 }
 .new-drop h2{
-  color: var(--clr-secondary);
-  font-size: 30px;
-  font-weight: 900;
   margin: 0%;
+  font-family: var(--ff-title);
+  color: var(--clr-secondary);
+  margin-bottom: 1rem;
+  text-align: left !important;
+  font-size: 5rem;
+  margin-top: 20px;
+  font-weight: 800;
 }
 
 
@@ -369,30 +373,32 @@ body {
   font-family: var(--ff-title);
   color: var(--clr-secondary);
   margin-bottom: 1rem;
-  font-size: 30px;
-  font-weight: 900;
   text-align: left !important;
+  font-size: 5rem;
+  margin-top: 20px;
+  font-weight: 800;
 }
 .sobrenosotros-description {
   font-family: var(--ff-body);
   font-size: 1.1rem;
-  line-height: 1.8;
   color: var(--clr-black);
-  max-width: 800px;
   text-align: left !important;
+  font-weight: 400;
+  font-size: 14px;
 }
 .about-item {
   text-align: center;
 }
 .about-title {
   font-family: var(--ff-title);
-  font-size: 1.5rem;
+  font-size: 2rem;
   color: var(--clr-primary);
   margin-top: 0.5rem;
 }
 .about-text {
   font-family: var(--ff-body);
-  font-size: 1rem;
+  font-weight: 400;
+  font-size: 14px;
   color: var(--clr-black);
   margin-top: 0.5rem;
 }
@@ -404,6 +410,9 @@ body {
 }
 .sobrenosotros-container img:hover {
   transform: scale(1.05);
+}
+.p-4{
+  padding: 0 !important;
 }
 
 
@@ -523,6 +532,12 @@ footer {
   .new-drop{
     margin: 1em 2em;
   }
+  .new-drop h2{
+    font-size: 4rem;
+  }
+  .sobrenosotros-title {
+    font-size: 4rem;
+  }
 }
 
 @media (max-width: 992px) {
@@ -558,6 +573,12 @@ footer {
   .carousel-cell {
     width: 300px; 
     /* 1FOTOENPEQUEÑO */
+  }
+  .new-drop h2{
+    font-size: 3rem;
+  }
+  .sobrenosotros-title {
+    font-size: 3rem;
   }
 }
 

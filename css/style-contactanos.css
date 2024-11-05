@@ -1,0 +1,122 @@
+.cont-ctanos,
+.cont-ctanos * {
+  box-sizing: border-box;
+}
+.cont-ctanos {
+  background: #153f92;
+  height: 1922px;
+  position: relative;
+  overflow: hidden;
+}
+.contactanos {
+  color: #ffffff;
+  text-align: left;
+  font-family: "Inter-Black", sans-serif;
+  font-size: 64px;
+  font-weight: 900;
+  position: absolute;
+  left: 140px;
+  top: 156px;
+}
+.pop-up-store {
+  color: #ffffff;
+  text-align: left;
+  font-family: "Inter-Black", sans-serif;
+  font-size: 64px;
+  font-weight: 900;
+  position: absolute;
+  left: 140px;
+  top: 588px;
+}
+.nombre-apellidos-asunto {
+  color: #ffffff;
+  text-align: left;
+  font-family: "Ligconsolata-Regular", sans-serif;
+  font-size: 40px;
+  font-weight: 400;
+  position: absolute;
+  left: 140px;
+  top: 300px;
+  width: 1142px;
+  height: 288px;
+}
+.puedes-encontarnos-en-la-pop-up-store-de-el-centro-comercial-la-gabia-del-12-de-octubre-hasta-el-23-de-noviembre-te-esperamos {
+  color: #ffffff;
+  text-align: left;
+  font-family: "Ligconsolata-Regular", sans-serif;
+  font-size: 40px;
+  font-weight: 400;
+  position: absolute;
+  left: 142px;
+  top: 708px;
+  width: 1142px;
+  height: 288px;
+}
+.vector-18 {
+  width: 669.14px;
+  height: 144.12px;
+  position: absolute;
+  left: 488.83px;
+  top: 802.6px;
+  overflow: visible;
+}
+.vector-19 {
+  width: 65.51px;
+  height: 37.82px;
+  position: absolute;
+  left: 894.49px;
+  top: 996px;
+  overflow: visible;
+}
+.vector-20 {
+  width: 40px;
+  height: 30.62px;
+  position: absolute;
+  left: 976px;
+  top: 1008px;
+  overflow: visible;
+}
+.vector-21 {
+  width: 24px;
+  height: 4.59px;
+  position: absolute;
+  left: 976px;
+  top: 1004px;
+  overflow: visible;
+}
+.vector-22 {
+  width: 45.38px;
+  height: 31.92px;
+  position: absolute;
+  left: 1028.98px;
+  top: 1004px;
+  overflow: visible;
+}
+.vector-23 {
+  width: 20px;
+  height: 0px;
+  position: absolute;
+  left: 972px;
+  top: 1024px;
+  overflow: visible;
+}
+.rectangle-10 {
+  background: #d9d9d9;
+  width: 1128px;
+  height: 432px;
+  position: absolute;
+  left: 156px;
+  top: 1120px;
+}
+.mapa {
+  color: #000000;
+  text-align: left;
+  font-family: "Ligconsolata-Regular", sans-serif;
+  font-size: 40px;
+  font-weight: 400;
+  position: absolute;
+  left: 280px;
+  top: 1272px;
+  width: 772px;
+  height: 192px;
+}

@@ -131,7 +131,8 @@ body {
 /* FLECHA Y TITULO INICIO */
 .arrow-container {
   position: absolute;
-  top: 30px;
+  bottom: 0;
+  margin-bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
@@ -384,7 +385,7 @@ body {
   color: var(--clr-black);
   text-align: left !important;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 16px;
 }
 .about-item {
   text-align: center;
@@ -398,7 +399,7 @@ body {
 .about-text {
   font-family: var(--ff-body);
   font-weight: 400;
-  font-size: 14px;
+  font-size: 16px;
   color: var(--clr-black);
   margin-top: 0.5rem;
 }
@@ -414,7 +415,10 @@ body {
 .p-4{
   padding: 0 !important;
 }
-
+.img-fluid {
+  max-width: 100px;
+  height: auto;
+}
 
 
 /* FIN INICIOOOOOOOOO */

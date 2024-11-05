@@ -381,7 +381,6 @@ body {
 }
 .sobrenosotros-description {
   font-family: var(--ff-body);
-  font-size: 1.1rem;
   color: var(--clr-black);
   text-align: left !important;
   font-weight: 400;

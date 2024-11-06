@@ -43,12 +43,17 @@ const menuButton = document.getElementById('menuButton');
 
 
 // BLOQUEA SCROLL
-document.body.style.overflow = 'hidden';
-document.querySelector('.arrow-container').addEventListener('click', function() {
-  //DEJAR HACER SCROLL DE NUEVO TRANS DAR A NUEVA COLLECTION
-  document.body.style.overflow = 'auto';
-  document.querySelector('.wrapper').scrollIntoView({ behavior: 'smooth' });
-});
+// Ejecuta solo si la URL es la de la página de inicio
+if (window.location.pathname.includes('index.html')) {
+    // Bloquea el scroll inicialmente
+    document.body.style.overflow = 'hidden';
+  
+    // Habilita el scroll y desplázate a la nueva sección al hacer clic en la flecha
+    document.querySelector('.arrow-container').addEventListener('click', function() {
+      document.body.style.overflow = 'auto';
+      document.querySelector('.wrapper').scrollIntoView({ behavior: 'smooth' });
+    });
+  }
 
 
 
@@ -142,5 +147,50 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-
 // FIN INICIOOOOOOOO
+
+// Función para enviar el formulario y mostrar el modal
+function enviarCorreo() {
+    "use strict";
+    
+    // Obtener valores de los campos del formulario
+    var nombre = document.getElementById("nombreInput").value;
+    var correo = document.getElementById("correo").value;
+    var asunto = document.getElementById("masage").value;
+
+    // Verificar que todos los campos estén completos
+    if (nombre === "" || correo === "" || asunto === "") {
+        alert("Por favor, complete todos los campos antes de contactarnos");
+        return false;
+    }
+
+    // Añadir valores en la ventana modal
+    document.getElementById("nom").textContent = nombre;
+    document.getElementById("c").textContent = correo;
+    document.getElementById("a").textContent = asunto;
+
+    // Mostrar el modal
+    document.getElementById("modal").style.display = "flex";
+
+    // Mostrar el mensaje de confirmación
+    document.getElementById("confirmMessage").textContent = "Correo enviado correctamente";
+
+    // Limpiar el formulario
+    resetForm();
+    return false; // Evitar que se recargue la página
+}
+
+// Función para cerrar el modal
+function cerrarVentana() {
+    "use strict";
+    // Ocultar el modal cambiando el estilo display
+    document.getElementById("modal").style.display = "none";
+    resetForm(); // Limpiar el formulario cuando se cierra el modal
+}
+
+// Función para limpiar el formulario después de enviar
+function resetForm() {
+    document.getElementById("nombreInput").value = "";
+    document.getElementById("correo").value = "";
+    document.getElementById("masage").value = "";
+}

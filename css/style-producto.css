@@ -1,0 +1,206 @@
+body {
+    margin: 0; 
+    height: 100vh;
+    /* PARA EL SCROLL */
+    overflow: auto;
+    font-size: 18px;
+    /* background-image: url('img/img\Fotofondo.jpg'); */
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+  }
+
+/* MENU */
+.menu{
+    position: relative;
+  }
+  
+  
+  /* LA OPACIDAD DEL FONDO PARA CUANDO SE ABRE EL MENU */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color:var(--ff-opacity);
+    opacity: 0; /* Inicialmente invisible */
+    transition: opacity 0.3s ease; /* Transición suave */
+    z-index: 10; /* Detrás del botón y la barra */
+    visibility: hidden; /* Invisible por defecto */
+  }
+  
+  
+  /* MENU OCULTO IZQUIERDA */
+  .bar {
+    position: fixed;
+    background-color: var(--clr-primary);
+    width: 0;
+    top: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow: hidden;
+    transition: width 0.3s ease;
+    z-index: 20;
+    padding: 10px 0;
+    align-items: flex-start;
+  }
+  
+  
+  /* BOTÓN DEL MENU */
+  .menu-button {
+    position: fixed; /* Fijado */
+    top: 0;
+    left: 0;
+    width: 60px; /*Tamaño botón */
+    height: 90px; /* Tamaño botón */
+    cursor: pointer;
+    z-index: 30; /* Encima de todo*/
+    transition: transform 0.3s ease;
+  }
+  
+  
+  /* VIBRACIÓN ETIQEUTA */
+  .vibrate {
+    animation: vibrate 0.3s ease-in-out;
+  }
+  @keyframes vibrate {
+    0% { transform: translateY(0); }
+    25% { transform: translateY(-3px); } 
+    50% { transform: translateY(3px); }  
+    75% { transform: translateY(-3px); }
+    100% { transform: translateY(0); }
+  }
+  
+  
+  /* CATEGORIAS MENU */
+  .bar a {
+    color: var(--clr-white);
+    padding: 10px;
+    font-family: var(--ff-body);
+    font-size: 14px;
+    text-align: center;
+    margin: 5px 0;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+  }
+  .bar a::after {
+    content: ""; 
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--clr-white);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+  .bar a:hover::after {
+    transform: scaleX(1);
+  }
+  
+  
+  .centered {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+
+
+/* CARRUSEL */
+* {
+    box-sizing: border-box;
+  }
+  
+  /* Position the image container (needed to position the left and right arrows) */
+  .container {
+    position: relative;
+  }
+  
+  /* Hide the images by default */
+  .mySlides {
+    display: none;
+    border: 1.5px solid black;
+  }
+  
+  /* Add a pointer when hovering over the thumbnail images */
+  .cursor {
+    cursor: pointer;
+  }
+  
+  /* Next & previous buttons */
+  .prev,
+  .next {
+    cursor: pointer;
+    position: absolute;
+    top: 40%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover,
+  .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  /* Number text (1/3 etc) */
+  .numbertext {
+    color: #000000;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+    font-family: Inconsolata;
+  }
+
+  .row {
+    display: flex;             /* Usamos flexbox para organizar las columnas */
+    justify-content: flex-start; /* Asegura que las columnas tengan espacio entre ellas */
+    margin: 10px 0;            /* Espaciado vertical entre la galería y otros elementos */
+    box-sizing: border-box;    /* Asegura que el padding no haga que el contenedor se desborde */
+    overflow: hidden; 
+}
+  
+
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Six columns side by side */
+  .column {
+    float: left;
+    width: 16.66%;
+    border: 1.5px solid black;
+    margin-right: 10px;         /* Añade un margen de 10px a la derecha entre las miniaturas */
+    box-sizing: border-box;
+  }
+  
+  /* Add a transparency effect for thumnbail images */
+  .demo {
+    opacity: 0.6;
+  }
+  
+  .active,
+  .demo:hover {
+    opacity: 1;
+  }

@@ -161,7 +161,7 @@
 }  
 
 /* Tamaño de pantalla mediano (tablets y dispositivos pequeños) */
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .gallery-container {
     top: auto; 
 }  

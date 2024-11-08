@@ -138,7 +138,7 @@ body {
 .arrow-container {
   position: absolute;
   bottom: 0;
-  margin-bottom: 40px;
+  margin-bottom: 10%;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
@@ -158,7 +158,7 @@ body {
   font-family: var(--ff-title);
   font-size: 14px;
   color: var(--clr-white);
-  margin-bottom: 5px;
+  margin-bottom: 2px;
   letter-spacing: 2px;
   font-weight: bold;
 }
@@ -327,17 +327,15 @@ body {
   font-family: var(--ff-title);
   letter-spacing: 2px;
   font-weight: 800;
-  margin: 1em 7em;
+  margin: 1em 5em;
 }
 .new-drop h2{
-  margin: 0%;
-  font-family: var(--ff-title);
-  color: var(--clr-secondary);
-  margin-bottom: 1rem;
-  text-align: left !important;
   font-size: 5rem;
+  font-family: "Inter", sans-serif;
+  text-align: left;
   margin-top: 20px;
   font-weight: 800;
+  line-height: 1.2;
 }
 
 
@@ -394,6 +392,9 @@ body {
   font-weight: 400;
   font-size: 18px;
 }
+.about-title{
+  color: var(--clr-primary);
+}
 .about-item {
   text-align: center;
 }
@@ -420,6 +421,11 @@ body {
   max-width: 100px;
   height: auto;
 }
+.mt-4 {
+  margin-top: 3rem !important;
+}
+
+
 
 
 /* FIN INICIOOOOOOOOO */
@@ -528,15 +534,18 @@ footer {
 }
 
 @media (max-width: 1466px) {
-  
 }
-
+@media (max-width: 1300px) {
+}
 @media (max-width: 1200px) {
   .new-drop h2{
     font-size: 4rem;
   }
   .sobrenosotros-title {
     font-size: 4rem;
+  }
+  .arrow-container {
+    margin-bottom: 5%;
   }
 }
 
@@ -590,9 +599,6 @@ footer {
   .new-collection-text {
     margin-bottom: 0px;
   }
-  .arrow-container {
-    top: 20px;
-  }
   .carousel-wrapper {
     margin: 10px 30px;
   }
@@ -601,7 +607,11 @@ footer {
     top: 60px;
 }
 }
-
+@media (max-width: 400px) {
+  .arrow-container {
+    margin-bottom: 2%;
+  }
+}
 
 
 @media (min-width: 992px) {

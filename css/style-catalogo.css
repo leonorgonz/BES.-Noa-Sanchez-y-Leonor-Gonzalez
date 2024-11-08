@@ -140,12 +140,6 @@
     }
 }
 
-@media (max-width: 768px){
-  .titulo-catalogo {
-      text-align: center;
-  }
-}
-
 
 
 
@@ -167,6 +161,9 @@
   .gallery-container {
     top: auto; 
 }  
+.container{
+  max-width: 1200px;
+}
 }
 
 /* Tamaño de pantalla pequeño (teléfonos móviles) */

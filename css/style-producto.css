@@ -4,10 +4,11 @@ body {
     /* PARA EL SCROLL */
     overflow: auto;
     font-size: 18px;
-    /* background-image: url('img/img\Fotofondo.jpg'); */
-    background-size: cover; 
-    background-position: center; 
-    background-repeat: no-repeat; 
+    background-image: url('file:///C:/Users/lello/Documents/GitHub/BES.-Noa-S-nchez-y-Leonor-Gonz-lez/img/fotofondo.jpg');
+    background-size: cover; /* Asegura que la imagen cubra el fondo */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Fija la imagen para que no se mueva con el scroll */
   }
 
 /* MENU */
@@ -119,6 +120,7 @@ body {
   /* Position the image container (needed to position the left and right arrows) */
   .container {
     position: relative;
+    width: 55%;
   }
   
   /* Hide the images by default */
@@ -173,10 +175,11 @@ body {
 
   .row {
     display: flex;             /* Usamos flexbox para organizar las columnas */
-    justify-content: flex-start; /* Asegura que las columnas tengan espacio entre ellas */
-    margin: 10px 0;            /* Espaciado vertical entre la galería y otros elementos */
-    box-sizing: border-box;    /* Asegura que el padding no haga que el contenedor se desborde */
-    overflow: hidden; 
+    justify-content: center;
+    margin: 10px 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    align-items: stretch;
 }
   
 
@@ -189,9 +192,8 @@ body {
   /* Six columns side by side */
   .column {
     float: left;
-    width: 16.66%;
+    width: 19%;
     border: 1.5px solid black;
-    margin-right: 10px;         /* Añade un margen de 10px a la derecha entre las miniaturas */
     box-sizing: border-box;
   }
   

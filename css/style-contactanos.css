@@ -8,89 +8,190 @@
   --ff-body: "inconsolata";
   --ff-opacity: rgba(0, 0, 0, 0.5);
 }
-
-/* El contenedor de contactanos */
-#contactanos {
-  padding: 20px;
+body {
+ background-color: var(--clr-secondary);
+ color: var(--clr-white) !important;
+ margin: 0; 
+  height: 100vh;
+  /* PARA EL SCROLL */
+  overflow: auto;
+  padding-bottom: 4rem;
+  font-size: 18px;
+  line-height: 1.6;
+  
+}
+/* MENU OCULTO IZQUIERDA */
+.bar {
+  position: fixed;
+  background-color: var(--clr-primary);
+  width: 0;
+  height: 100%;
   display: flex;
-  justify-content: center;
   flex-direction: column;
+  justify-content: flex-start;
+  overflow: hidden;
+  transition: width 0.3s ease;
+  z-index: 20;
+  padding: 10px 0;
   align-items: flex-start;
-  width: 100%; /* Asegura que el contenedor ocupe todo el ancho */
 }
 
-/* Estilo del título (h2) */
+
+/* BOTÓN DEL MENU */
+.menu-button {
+  position: fixed; /* Fijado */
+  top: 0;
+  left: 0;
+  width: 60px; /*Tamaño botón */
+  height: 90px; /* Tamaño botón */
+  cursor: pointer;
+  z-index: 30; /* Encima de todo*/
+  transition: transform 0.3s ease;
+}
+
+
+/* VIBRACIÓN ETIQEUTA */
+.vibrate {
+  animation: vibrate 0.3s ease-in-out;
+}
+@keyframes vibrate {
+  0% { transform: translateY(0); }
+  25% { transform: translateY(-3px); } 
+  50% { transform: translateY(3px); }  
+  75% { transform: translateY(-3px); }
+  100% { transform: translateY(0); }
+}
+
+
+/* CATEGORIAS MENU */
+.bar a {
+  color: var(--clr-white);
+  padding: 10px;
+  font-family: var(--ff-body);
+  font-size: 14px;
+  text-align: center;
+  margin: 5px 0;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+.bar a::after {
+  content: ""; 
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--clr-white);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+.bar a:hover::after {
+  transform: scaleX(1);
+}
+
+
+.centered {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Contenedor principal */
+#contactanos {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  width: 100vw;
+  box-sizing: border-box;
+}
+
+/* Título */
 #contactanos h2 {
+  margin: 0%;
   font-family: var(--ff-title);
-  color: var(--clr-secondary);
+  color: var(--clr-white);
   margin-bottom: 1rem;
   text-align: left !important;
   font-size: 5rem;
   margin-top: 20px;
   font-weight: 800;
-  width: 100%; /* Asegura que el título también ocupe todo el ancho */
 }
 
-/* Estilo para el formulario, ocupando todo el ancho de la pantalla */
+/* Formulario */
 .datos-persona form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  width: 100%; /* El formulario ocupa todo el ancho disponible */
-  margin: 0 auto;
+  gap: 15px;
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-/* Estilo para las filas (etiqueta y campo de entrada) */
+/* Filas del formulario */
 .datos-persona .form-row {
   display: flex;
   align-items: center;
-  gap: 10px;
   width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
-/* Estilo de las etiquetas alineadas a la izquierda */
+/* Etiquetas alineadas a la izquierda con un ancho fijo */
 .datos-persona label {
   font-weight: bold;
-  width: 120px; /* Ajusta el ancho de la etiqueta según sea necesario */
-  white-space: nowrap; /* Para evitar que las etiquetas se dividan en varias líneas */
-}
-
-/* Estilo de los campos de entrada sin borde, con línea decorativa */
-.datos-persona input {
-  padding: 5px 0;
   font-size: 1.2em;
+  width: 300px; /* Espacio fijo para la etiqueta a la izquierda */
+  text-align: left;
+  box-sizing: border-box;
+}
+
+/* Campos de entrada */
+.datos-persona input {
+  flex: 1; /* El campo de entrada ocupa el espacio restante */
+  font-size: 1.2em;
+  padding: 10px 0;
   border: none;
-  border-bottom: 1px dotted #007BFF; /* Línea inferior de puntos */
+  border-bottom: 3px dotted var(--clr-white);
   outline: none;
-  width: 100%; /* Ocupa todo el ancho disponible */
-  text-align: center; /* Centra el texto dentro de la línea */
+  text-align: left;
+  background: none;
+  box-sizing: border-box;
 }
 
-/* Estilo del placeholder (texto de indicación) */
+/* Placeholder centrado */
 .datos-persona input::placeholder {
-  color: #999;
   font-style: italic;
-  text-align: center; /* Centra el texto del placeholder sobre la línea */
+  text-align: center;
+  color: var(--clr-white);
+
+}
+button, input, optgroup, select, textarea{
+  color: var(--clr-white);
 }
 
-/* Estilo del botón */
+/* Botón */
 .datos-persona button {
   padding: 10px;
   font-size: 1em;
   background-color: #007BFF;
-  color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  margin-top: 20px;
+  width: 100%;
+  margin: 20px 0 0;
+  box-sizing: border-box;
 }
 
 .datos-persona button:hover {
   background-color: #0056b3;
 }
 
-/* Estilos para el modal */
+/* Modal */
 #modal {
   position: fixed;
   top: 0;
@@ -102,7 +203,6 @@
   justify-content: center;
   align-items: center;
   z-index: 999;
-  color: white;
   padding: 20px;
   text-align: center;
 }
@@ -125,7 +225,6 @@
   padding: 10px 20px;
   font-size: 1em;
   background-color: #007BFF;
-  color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;

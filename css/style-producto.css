@@ -112,97 +112,101 @@ body {
 
 
 
-/* CARRUSEL */
-* {
-    box-sizing: border-box;
+/* CARRUSEL+INFO */
+   /* Contenedor principal ocupa toda la pantalla */
+   .product-detail-section {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    height: 100vh;
+    gap: 30px;
+    margin: 20px;
   }
-  
-  /* Position the image container (needed to position the left and right arrows) */
-  .container {
-    position: relative;
-    width: 55%;
+
+  /* Columnas para carrusel e información */
+  .carousel-column, .info-column {
+    flex: 1;
+    min-width: 300px;
+    align-content: center;
   }
-  
-  /* Hide the images by default */
-  .mySlides {
-    display: none;
-    border: 1.5px solid black;
+
+  /* Carrusel con altura limitada al 80% de la pantalla */
+  #productCarousel {
+    max-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
   }
-  
-  /* Add a pointer when hovering over the thumbnail images */
-  .cursor {
-    cursor: pointer;
+
+  /* Imágenes del carrusel ajustadas al contenedor */
+  #productCarousel .carousel-inner img {
+    max-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin: auto; 
   }
-  
-  /* Next & previous buttons */
-  .prev,
-  .next {
-    cursor: pointer;
-    position: absolute;
-    top: 40%;
-    width: auto;
-    padding: 16px;
-    margin-top: -50px;
+
+  .size-selection .btn-group .btn.selected {
+    --clr-primary: #ed6a42;
     color: white;
-    font-weight: bold;
-    font-size: 20px;
-    border-radius: 0 3px 3px 0;
-    user-select: none;
-    -webkit-user-select: none;
   }
-  
-  /* Position the "next button" to the right */
-  .next {
-    right: 0;
-    border-radius: 3px 0 0 3px;
+
+  /* Miniaturas */
+  .carousel-thumbnails {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 15px;
   }
-  
-  /* On hover, add a black background color with a little bit see-through */
-  .prev:hover,
-  .next:hover {
-    background-color: rgba(0, 0, 0, 0.8);
+
+  .carousel-thumbnails img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    cursor: pointer;
+    border: 2px solid transparent;  /* Sin borde para las miniaturas por defecto */
+    transition: opacity 0.3s ease;
   }
-  
-  /* Number text (1/3 etc) */
-  .numbertext {
-    color: #000000;
-    font-size: 12px;
-    padding: 8px 12px;
-    position: absolute;
-    top: 0;
+
+/* Miniatura activa con opacidad completa */
+.carousel-thumbnails img.active-thumbnail {
+  opacity: 1; /* Totalmente visible */
+}
+
+/* Miniaturas no activas con opacidad reducida */
+.carousel-thumbnails img:not(.active-thumbnail) {
+  opacity: 0.5; /* Menos visible */
+}
+
+  /* Información del producto */
+  .product-info {
+    max-width: 400px;
     font-family: Inconsolata;
   }
 
-  .row {
-    display: flex;             /* Usamos flexbox para organizar las columnas */
-    justify-content: center;
-    margin: 10px 0;
-    box-sizing: border-box;
-    overflow: hidden;
-    align-items: stretch;
-}
-  
+  .product-info h2{
+    font-family: Inconsolata;
+    color: #ee5d03;
 
-  .row:after {
-    content: "";
-    display: table;
-    clear: both;
+  }
+
+
+  /* BOTÓN */
+  .btn-custom {
+    background-color: #ff7f32; /* Naranja */
+    color: white;
+    border: none; /* Elimina el borde */
+    border-radius: 30px; /* Bordes redondeados */
+    padding: 10px 20px; /* Espaciado dentro del botón */
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
   }
   
-  /* Six columns side by side */
-  .column {
-    float: left;
-    width: 19%;
-    border: 1.5px solid black;
-    box-sizing: border-box;
-  }
-  
-  /* Add a transparency effect for thumnbail images */
-  .demo {
-    opacity: 0.6;
-  }
-  
-  .active,
-  .demo:hover {
-    opacity: 1;
+  .btn-custom:hover {
+    background-color: #ee5d03;
+    transform: scale(1.05); 
+    color: white;
   }

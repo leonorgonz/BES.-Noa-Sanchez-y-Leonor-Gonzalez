@@ -258,41 +258,40 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-let slideIndex = 1;
-showSlides(slideIndex);
-
-// Función para avanzar o retroceder en las diapositivas
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-// Función para ir a una diapositiva específica cuando se hace clic en las miniaturas
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-// Función para mostrar las diapositivas
-function showSlides(n) {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");  // Las imágenes del carrusel
-  let dots = document.getElementsByClassName("demo");        // Las miniaturas
-  if (n > slides.length) {slideIndex = 1}  // Si el índice es mayor al número de imágenes, vuelve a la primera imagen
-  if (n < 1) {slideIndex = slides.length} // Si el índice es menor a 1, va a la última imagen
+// CARRUSEL+INFO 
+document.addEventListener('DOMContentLoaded', function () {
+    const thumbnails = document.querySelectorAll('.carousel-thumbnails img');
+    const carousel = document.querySelector('#productCarousel'); // Carrusel
   
-  // Ocultar todas las imágenes
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-
-  // Eliminar la clase "active" de todas las miniaturas
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-
-  // Mostrar la imagen actual y agregar la clase "active" a la miniatura correspondiente
-  slides[slideIndex-1].style.display = "block";  // Mostrar la imagen correspondiente
-  dots[slideIndex-1].className = "active";     // Activar la miniatura correspondiente
-}
+    // Inicializar la clase 'active-thumbnail' en la primera miniatura
+    thumbnails[0].classList.add('active-thumbnail');
+  
+    // Manejo de clic en miniaturas
+    thumbnails.forEach((thumbnail, index) => {
+      thumbnail.addEventListener('click', () => {
+        // Mover el carrusel a la imagen correspondiente
+        const carouselInstance = new bootstrap.Carousel(carousel);
+        carouselInstance.to(index); // Mueve el carrusel a la miniatura seleccionada
+  
+        // Actualizar la clase 'active-thumbnail' en las miniaturas
+        thumbnails.forEach(t => t.classList.remove('active-thumbnail'));  // Eliminar clase de todas
+        thumbnail.classList.add('active-thumbnail');  // Agregar clase a la miniatura clicada
+      });
+    });
+  
+    // Sincronización de las miniaturas con el carrusel
+    carousel.addEventListener('slide.bs.carousel', function (event) {
+      const activeIndex = event.to;  // Obtener el índice de la nueva imagen activa
+  
+      // Actualizar la clase 'active-thumbnail' en las miniaturas
+      thumbnails.forEach((thumbnail, index) => {
+        thumbnail.classList.remove('active-thumbnail'); // Eliminar la clase de todas
+        if (index === activeIndex) {
+          thumbnail.classList.add('active-thumbnail'); // Agregar la clase a la miniatura activa
+        }
+      });
+    });
+  });
 
 
 

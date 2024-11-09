@@ -1,4 +1,7 @@
-const html = document.querySelector("html");
+document.addEventListener('DOMContentLoaded', function() {
+
+
+    const html = document.querySelector("html");
 
 // Data aos
 AOS.init();
@@ -150,64 +153,125 @@ document.addEventListener('DOMContentLoaded', function () {
 // FIN INICIOOOOOOOO
 
 // Función para enviar el formulario y mostrar el modal
-function enviarCorreo() {
-    "use strict";
+// function enviarCorreo() {
+//     "use strict";
     
     // Obtener valores de los campos del formulario
-    var nombre = document.getElementById("nombreInput").value;
-    var correo = document.getElementById("correo").value;
-    var asunto = document.getElementById("masage").value;
+    // var nombre = document.getElementById("nombreInput").value;
+    // var correo = document.getElementById("correo").value;
+    // var asunto = document.getElementById("masage").value;
 
     // Verificar que todos los campos estén completos
+    // if (nombre === "" || correo === "" || asunto === "") {
+    //     alert("Por favor, complete todos los campos antes de contactarnos");
+    //     return false;
+    // }
+
+    // Añadir valores en la ventana modal
+    // document.getElementById("nom").textContent = nombre;
+    // document.getElementById("c").textContent = correo;
+    // document.getElementById("a").textContent = asunto;
+
+    // Mostrar el modal
+    // document.getElementById("modal").style.display = "flex";
+
+    // Mostrar el mensaje de confirmación
+    // document.getElementById("confirmMessage").textContent = "Correo enviado correctamente";
+
+    // Limpiar el formulario
+    // resetForm();
+    // return false; // Evitar que se recargue la página
+// }
+
+// Función para cerrar el modal
+// function cerrarVentana() {
+//     "use strict";
+    // Ocultar el modal cambiando el estilo display
+    // document.getElementById("modal").style.display = "none";
+    // resetForm(); // Limpiar el formulario cuando se cierra el modal
+// }
+
+// Función para limpiar el formulario después de enviar
+// function resetForm() {
+//     document.getElementById("nombreInput").value = "";
+//     document.getElementById("correo").value = "";
+//     document.getElementById("masage").value = "";
+// }
+
+
+// Función para enviar el formulario y mostrar el modal
+function enviarCorreo() {
+    console.log('enviarCorreo llamado');  // Verifica si la función se ejecuta
+
+    const nombre = document.getElementById("nombreInput").value;
+    const correo = document.getElementById("correoInput").value;
+    const asunto = document.getElementById("asuntoInput").value;
+
     if (nombre === "" || correo === "" || asunto === "") {
         alert("Por favor, complete todos los campos antes de contactarnos");
         return false;
     }
 
-    // Añadir valores en la ventana modal
     document.getElementById("nom").textContent = nombre;
     document.getElementById("c").textContent = correo;
     document.getElementById("a").textContent = asunto;
 
     // Mostrar el modal
     document.getElementById("modal").style.display = "flex";
-
-    // Mostrar el mensaje de confirmación
-    document.getElementById("confirmMessage").textContent = "Correo enviado correctamente";
-
-    // Limpiar el formulario
     resetForm();
-    return false; // Evitar que se recargue la página
 }
 
-// Función para cerrar el modal
 function cerrarVentana() {
-    "use strict";
-    // Ocultar el modal cambiando el estilo display
+    console.log('cerrarVentana llamado');  // Verifica si la función se ejecuta
+
     document.getElementById("modal").style.display = "none";
-    resetForm(); // Limpiar el formulario cuando se cierra el modal
+    resetForm();
 }
 
-// Función para limpiar el formulario después de enviar
 function resetForm() {
     document.getElementById("nombreInput").value = "";
-    document.getElementById("correo").value = "";
-    document.getElementById("masage").value = "";
+    document.getElementById("correoInput").value = "";
+    document.getElementById("asuntoInput").value = "";
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+    console.log('DOM completamente cargado y listo');
+
+    // Asigna las funciones al botón de envío y cierre
+    const btnEnviar = document.querySelector("button#enviarBtn");
+    const btnCerrar = document.querySelector("button#cerrarBtn");
+
+    if (btnEnviar) {
+        console.log('Botón de enviar encontrado');
+        btnEnviar.onclick = enviarCorreo;
+    } else {
+        console.error('Botón de enviar no encontrado');
+    }
+
+    if (btnCerrar) {
+        console.log('Botón de cerrar encontrado');
+        btnCerrar.onclick = cerrarVentana;
+    } else {
+        console.error('Botón de cerrar no encontrado');
+    }
+});
+
+
 
 let slideIndex = 1;
 showSlides(slideIndex);
 
-// Next/previous controls
+// Función para avanzar o retroceder en las diapositivas
 function plusSlides(n) {
   showSlides(slideIndex += n);
 }
 
-// Thumbnail image controls
+// Función para ir a una diapositiva específica cuando se hace clic en las miniaturas
 function currentSlide(n) {
   showSlides(slideIndex = n);
 }
 
+// Función para mostrar las diapositivas
 function showSlides(n) {
   let i;
   let slides = document.getElementsByClassName("mySlides");  // Las imágenes del carrusel
@@ -227,5 +291,13 @@ function showSlides(n) {
 
   // Mostrar la imagen actual y agregar la clase "active" a la miniatura correspondiente
   slides[slideIndex-1].style.display = "block";  // Mostrar la imagen correspondiente
-  dots[slideIndex-1].className += " active";     // Activar la miniatura correspondiente
+  dots[slideIndex-1].className = "active";     // Activar la miniatura correspondiente
 }
+
+
+
+})
+
+
+
+

@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <title>CATÁLOGO</title>
+        <title>CONTÁCTANOS</title>
         <link rel="stylesheet" href="https://use.typekit.net/qhm8wqj.css" />
         <!-- BOOTSTRAP -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
@@ -43,7 +43,7 @@
                    <a href="contactanos.html">Contáctanos</a>
                </div>
            </div>
-           <div id="contactanos">
+           <!-- <div id="contactanos">
             <h2>CONTÁCTANOS</h2>
             <div class="datos-persona">
                 <form id="contactForm">
@@ -71,9 +71,55 @@
                 <li>Asunto: <strong><span id="a"></span></strong></li>
             </ul>
             <button onclick="cerrarVentana()">Aceptar</button>
+        </div> -->
+
+
+<!-- Formulario de Contacto -->
+<div class="row contact-header justify-content-center">
+    <div class="col-12 text-left">
+        <h2 class="titulo-contacto">CONTÁCTANOS</h2>
+    </div>
+</div>
+
+<div id="contactanos" class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <form id="contactForm">
+                <div class="mb-3">
+                    <label for="nombreInput" class="form-label">Nombre:</label>
+                    <input type="text" id="nombreInput" class="form-control" placeholder="Nombre" required>
+                </div>
+                <div class="mb-3">
+                    <label for="correoInput" class="form-label">Correo electrónico:</label>
+                    <input type="email" id="correoInput" class="form-control" placeholder="Correo electrónico" required>
+                </div>
+                <div class="mb-3">
+                    <label for="asuntoInput" class="form-label">Asunto:</label>
+                    <input type="text" id="asuntoInput" class="form-control" placeholder="Asunto" required>
+                </div>
+                <!-- Cambiado el onclick a id para asignar el evento desde JS -->
+                <button type="button" id="enviarBtn" class="btn btn-primary w-100">Enviar</button>
+            </form>
         </div>
-        
+    </div>
+</div>
+
+<!-- Modal de confirmación -->
+<div id="modal" class="d-flex align-items-center justify-content-center" style="display: none;">
+    <div class="bg-white p-4 rounded text-center" style="max-width: 500px;">
+        <h4>Tu correo se ha enviado correctamente, te responderemos lo antes posible ;)</h4>
+        <ul class="list-unstyled mt-3">
+            <li>Nombre: <strong><span id="nom"></span></strong></li>
+            <li>Correo electrónico: <strong><span id="c"></span></strong></li>
+            <li>Asunto: <strong><span id="a"></span></strong></li>
+        </ul>
+        <!-- Cambiado el onclick a id para asignar el evento desde JS -->
+        <button id="cerrarBtn" class="btn btn-primary mt-3">Aceptar</button>
+    </div>
+</div>
+
     
+
     
     <footer>
       <div class="footer-content">
@@ -108,6 +154,6 @@
     <!-- FLIKITI -->
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
     <!-- JAVASCRIPT -->
-     <script src="js/script.js"></script>
+    <script src="js\script.js"></script>
     </body>
 </html>

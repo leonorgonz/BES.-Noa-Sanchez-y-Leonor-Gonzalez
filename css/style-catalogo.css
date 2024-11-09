@@ -17,7 +17,7 @@
     /* PARA EL SCROLL */
     overflow: auto;
     font-size: 18px;
-    background-image: url('file:///C:/Users/lello/Documents/GitHub/BES.-Noa-S-nchez-y-Leonor-Gonz-lez/img/fotofondo.jpg');
+    background-image: url('C:/Users/noaes/Documents/GitHub/BES.-Noa-Sanchez-y-Leonor-Gonzalez/img/Fotofondo.jpg');
     background-size: cover; /* Asegura que la imagen cubra el fondo */
     background-position: center; /* Centra la imagen */
     background-repeat: no-repeat;

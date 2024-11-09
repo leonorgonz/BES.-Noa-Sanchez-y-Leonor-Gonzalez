@@ -126,21 +126,32 @@
 
 /* TÍTULO CATÁLOGO */
 .titulo-catalogo {
-    font-size: 5rem;
-    font-family: "Inter", sans-serif;
-    text-align: left;
-    margin-top: 20px;
-    font-weight: 800;
+  font-family: var(--ff-title);
+  color: var(--clr-secondary);
+  margin-bottom: 1rem;
+  text-align: left !important;
+  font-size: 5rem;
+  margin-top: 20px;
+  font-weight: 800;
+  margin: 1em 1em;
+}
+@media (max-width: 1200px) {
+  .titulo-catalogo {
+    font-size: 4rem;
+    margin: 0em 1em;
+    margin-top: 1em;
+  }
+}
+@media (max-width: 768px) {
+  .titulo-catalogo {
+    font-size: 3rem;
+    margin-top: 1em;
+  }
 }
 
-/* Tamaño de pantalla mediano (tablets y dispositivos pequeños) */
-@media (max-width: 1024px) {
-    .titulo-catalogo {
-        font-size: 4rem;
-    }
+.mt-5{
+  margin-top: 0 !important;
 }
-
-
 
 
 /* GALERIA */
@@ -148,6 +159,10 @@
     width: 100%;
     height: auto;
 } 
+.row{
+  margin-left: 0;
+  margin-right: 0;
+}
 
 
 /*Estilos de la galería */
@@ -238,7 +253,7 @@
 /* Textos info catalogo */
 .product-info {
     text-align: left;
-    font-size: 0.75rem;
+    font-size: 18px;
     font-family: inconsolata;
     margin-top: 10px;
     transition: color 0.3s ease, font-size 0.3s ease;
@@ -261,6 +276,40 @@
     color: #0004ff;
     font-weight: 700;
 }
+
+/* BOTON */
+.custom-btn {
+  background: none;                  
+  border: none;                      
+  color: var(--clr-primary);                    
+  font-size: 1.25rem;                
+  font-weight: bold;                 
+  display: flex;                     
+  align-items: center;               
+  justify-content: center;          
+  cursor: pointer;                   
+  padding: 10px;                     
+  position: relative;
+  transition: color 0.3s ease;       
+  gap: 8px;                          
+}
+
+.custom-btn:hover {
+  color: var(--clr-secondary);                   
+}
+
+.arrow {
+  width: 20px;                       
+  height: 20px;
+  color: inherit;                    
+  transition: transform 0.3s ease;   
+}
+
+.custom-btn:hover .arrow {
+  transform: translateY(3px);    
+}
+
+
 
 
 /* FOOTER */

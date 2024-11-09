@@ -223,6 +223,24 @@ body {
   }
 }
 
+/* VIDEO INICIO */
+.video-container {
+  position: relative;
+  width: 100%;            /* Ocupa todo el ancho */
+  height: auto;           /* Altura automática para mantener proporción */
+  overflow: hidden;
+}
+
+.video-container video {
+  width: 100%;
+  height: auto;
+  object-fit: cover;      /* Ajusta para que el video cubra todo el contenedor */
+  display: block;
+}
+
+
+
+
 
 /* CAROUSEL Y GALERIA NEW COLLECTION */
 .carousel-container {

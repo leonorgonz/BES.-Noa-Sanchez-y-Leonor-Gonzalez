@@ -375,3 +375,16 @@ footer {
   padding-top: 10px;
 }
 /* FIN FOOTER */
+@media (max-width: 768px) {
+  .menu-button {
+    width: 50px; /*Tamaño botón */
+    height: 80px; /* Tamaño botón */
+  }
+}
+
+@media (max-width: 576px) {
+  .menu-button {
+    width: 40px; /*Tamaño botón */
+    height: 60px; /* Tamaño botón */
+  }
+}

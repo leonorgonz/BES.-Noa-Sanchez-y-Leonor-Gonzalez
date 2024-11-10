@@ -155,7 +155,7 @@ body {
   transform: translateY(5px);
 }
 .new-collection-text {
-  font-family: var(--ff-title);
+  font-family: var(--ff-body);
   font-size: 14px;
   color: var(--clr-white);
   margin-bottom: 2px;

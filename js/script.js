@@ -1,302 +1,136 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
 
+    // Inicializar AOS (animaciones)
+    AOS.init();
 
-    const html = document.querySelector("html");
+    // Manejo del menú
+    const menuButton = document.getElementById('menuButton');
+    const bar = document.getElementById('bar');
+    const overlay = document.getElementById('overlay');
+    let menuVisible = false;
 
-// Data aos
-AOS.init();
-
-// INICIOOOOOOOOOOOOOOO
-// MENU BOTÓN
-const menuButton = document.getElementById('menuButton');
-        const bar = document.getElementById('bar');
-        const overlay = document.getElementById('overlay');
-        let menuVisible = false; // Estado del menú (oculto por defecto)
-
-        // CLICK
-        menuButton.addEventListener('click', function () {
-            if (!menuVisible) {
-                bar.style.width = '200px';
-                menuButton.style.transform = 'translateX(200px)';
-                overlay.style.opacity = '1';
-                overlay.style.visibility = 'visible';
-                document.body.style.overflow = 'hidden';
-                menuVisible = true;
-            } else {
-                bar.style.width = '0'; 
-                menuButton.style.transform = 'translateX(0)';
-                overlay.style.opacity = '0';
-                overlay.style.visibility = 'hidden';
-                document.body.style.overflow = 'auto';
-                menuVisible = false;
-            }
-        });
-
-        // VIBRACIÓN
-        function vibrateButton() {
-            if (!menuVisible) { 
-                menuButton.classList.add('vibrate');
-                setTimeout(() => {
-                    menuButton.classList.remove('vibrate');
-                }, 300);
-            }
+    menuButton.addEventListener('click', function () {
+        if (!menuVisible) {
+            bar.style.width = '200px';
+            menuButton.style.transform = 'translateX(200px)';
+            overlay.style.opacity = '1';
+            overlay.style.visibility = 'visible';
+            document.body.style.overflow = 'hidden';
+            menuVisible = true;
+        } else {
+            bar.style.width = '0';
+            menuButton.style.transform = 'translateX(0)';
+            overlay.style.opacity = '0';
+            overlay.style.visibility = 'hidden';
+            document.body.style.overflow = 'auto';
+            menuVisible = false;
         }
-        setInterval(vibrateButton, 2000);
-
-
-
-// BLOQUEA SCROLL
-// Ejecuta solo si la URL es la de la página de inicio
-if (window.location.pathname.includes('index.html')) {
-    // Bloquea el scroll inicialmente
-    document.body.style.overflow = 'hidden';
-  
-    // Habilita el scroll y desplázate a la nueva sección al hacer clic en la flecha
-    document.querySelector('.arrow-container').addEventListener('click', function() {
-      document.body.style.overflow = 'auto';
-      document.querySelector('.wrapper').scrollIntoView({ behavior: 'smooth' });
     });
-  }
 
-
-
-// CAROUSEL INICIO
-$(document).ready(function () {
-    let currentIndex = 0;
-    const items = $('#iniciocarouselInner .carousel-item');
-    const itemCount = items.length;
-    // CAMBIA IMAGEN
-    function changeImage() {
-        items.eq(currentIndex).removeClass('active');
-        currentIndex = (currentIndex + 1) % itemCount;
-        items.eq(currentIndex).addClass('active'); 
+    // Función de vibración en el botón de menú
+    function vibrateButton() {
+        if (!menuVisible) {
+            menuButton.classList.add('vibrate');
+            setTimeout(() => menuButton.classList.remove('vibrate'), 300);
+        }
     }
-    setInterval(changeImage, 1500);
+    setInterval(vibrateButton, 2000);
+
+    // **Formulario y Modal**
+
+    // Función de envío del formulario y mostrar el modal
+    function enviarCorreo() {
+        // Obtener los valores de los campos
+        const nombre = document.getElementById('nombreInput').value;
+        const correo = document.getElementById('correoInput').value;
+        const asunto = document.getElementById('asuntoInput').value;
+
+        // Validar si todos los campos están completos
+        if (nombre === '' || correo === '' || asunto === '') {
+            alert('Por favor, completa todos los campos antes de contactarnos.');
+            return; // No continuar si los campos están vacíos
+        }
+
+        // Mostrar los datos en el modal
+        document.getElementById('nom').textContent = nombre;
+        document.getElementById('c').textContent = correo;
+        document.getElementById('a').textContent = asunto;
+
+        // Mostrar el modal
+        const modal = document.getElementById('modal');
+        modal.style.display = 'flex';
+
+        // Limpiar el formulario
+        document.getElementById('contactForm').reset();
+    }
+
+    // Función para cerrar el modal
+    function cerrarVentana() {
+        const modal = document.getElementById('modal');
+        modal.style.display = 'none';
+    }
+
+    // Asignamos el evento al botón de "Enviar mensaje"
+    document.querySelector("button[type='button']").addEventListener("click", enviarCorreo);
+
+    // Asignamos el evento para cerrar el modal
+    const closeModalButton = document.getElementById("closeModalButton");
+    if (closeModalButton) {
+        closeModalButton.addEventListener("click", cerrarVentana);
+    }
+
 });
+const thumbnails = document.querySelectorAll('.carousel-thumbnails img');
+    const carouselItems = document.querySelectorAll('#productCarousel .carousel-item');
 
-
-
-// CAROUSEL 3 MODELOS
-$(document).ready(function () {
-    // Función para configurar el carrusel
-    function setupCarousel(carouselId) {
-        let currentIndex = 0; // Índice de la imagen actual
-        const items = $(`${carouselId} .carousel-item`); // Seleccionar los items del carrusel
-        const itemCount = items.length; // Número total de items
-
-        // Ocultar todos los items y mostrar solo el primero
-        items.hide(); // Ocultar todas las imágenes
-        items.eq(currentIndex).show(); // Mostrar la primera imagen
-
-        // Cambiar la imagen
-        setInterval(function () {
-            items.eq(currentIndex).hide(); // Ocultar imagen actual
-            currentIndex = (currentIndex + 1) % itemCount; // Avanzar al siguiente índice (volviendo a 0 si se llega al final)
-            items.eq(currentIndex).show(); // Mostrar la nueva imagen
-        }, 1000); // Cambiar cada 1 segundo
-    }
-
-    // Inicializar cada carrusel
-    setupCarousel('#galleryCarousel1');
-    setupCarousel('#galleryCarousel2');
-    setupCarousel('#galleryCarousel3');
-    
-});
-
-
-
-
-// CUENTA ATRÁS
-document.addEventListener('DOMContentLoaded', () => {
-    const DATE_TARGET = new Date('2/1/2025 5:01 AM');
-    // DOM for render
-    const SPAN_DAYS = document.querySelector('span#days');
-    const SPAN_HOURS = document.querySelector('span#hours');
-    const SPAN_MINUTES = document.querySelector('span#minutes');
-    const SPAN_SECONDS = document.querySelector('span#seconds');
-    // Milliseconds for the calculations
-    const MILLISECONDS_OF_A_SECOND = 1000;
-    const MILLISECONDS_OF_A_MINUTE = MILLISECONDS_OF_A_SECOND * 60;
-    const MILLISECONDS_OF_A_HOUR = MILLISECONDS_OF_A_MINUTE * 60;
-    const MILLISECONDS_OF_A_DAY = MILLISECONDS_OF_A_HOUR * 24
-
-    function updateCountdown() {
-          // Calcs
-        const NOW = new Date();
-        const DURATION = DATE_TARGET - NOW;
-        const REMAINING_DAYS = Math.floor(DURATION / MILLISECONDS_OF_A_DAY);
-        const REMAINING_HOURS = Math.floor((DURATION % MILLISECONDS_OF_A_DAY) / MILLISECONDS_OF_A_HOUR);
-        const REMAINING_MINUTES = Math.floor((DURATION % MILLISECONDS_OF_A_HOUR) / MILLISECONDS_OF_A_MINUTE);
-        const REMAINING_SECONDS = Math.floor((DURATION % MILLISECONDS_OF_A_MINUTE) / MILLISECONDS_OF_A_SECOND);
-        
-        // Render
-        SPAN_DAYS.textContent = REMAINING_DAYS;
-        SPAN_HOURS.textContent = REMAINING_HOURS;
-        SPAN_MINUTES.textContent = REMAINING_MINUTES;
-        SPAN_SECONDS.textContent = REMAINING_SECONDS;
-    }
-
-    updateCountdown();
-    // Refresh every second
-    setInterval(updateCountdown, MILLISECONDS_OF_A_SECOND);
-});
-
-document.addEventListener('DOMContentLoaded', function () {
-    var flkty = new Flickity('.carousel-flickity', {
-        wrapAround: true,
-        cellAlign: 'left',
-        contain: true,
-        imagesLoaded: true
-    });
-});
-
-// FIN INICIOOOOOOOO
-
-// Función para enviar el formulario y mostrar el modal
-// function enviarCorreo() {
-//     "use strict";
-    
-    // Obtener valores de los campos del formulario
-    // var nombre = document.getElementById("nombreInput").value;
-    // var correo = document.getElementById("correo").value;
-    // var asunto = document.getElementById("masage").value;
-
-    // Verificar que todos los campos estén completos
-    // if (nombre === "" || correo === "" || asunto === "") {
-    //     alert("Por favor, complete todos los campos antes de contactarnos");
-    //     return false;
-    // }
-
-    // Añadir valores en la ventana modal
-    // document.getElementById("nom").textContent = nombre;
-    // document.getElementById("c").textContent = correo;
-    // document.getElementById("a").textContent = asunto;
-
-    // Mostrar el modal
-    // document.getElementById("modal").style.display = "flex";
-
-    // Mostrar el mensaje de confirmación
-    // document.getElementById("confirmMessage").textContent = "Correo enviado correctamente";
-
-    // Limpiar el formulario
-    // resetForm();
-    // return false; // Evitar que se recargue la página
-// }
-
-// Función para cerrar el modal
-// function cerrarVentana() {
-//     "use strict";
-    // Ocultar el modal cambiando el estilo display
-    // document.getElementById("modal").style.display = "none";
-    // resetForm(); // Limpiar el formulario cuando se cierra el modal
-// }
-
-// Función para limpiar el formulario después de enviar
-// function resetForm() {
-//     document.getElementById("nombreInput").value = "";
-//     document.getElementById("correo").value = "";
-//     document.getElementById("masage").value = "";
-// }
-
-
-// Función para enviar el formulario y mostrar el modal
-function enviarCorreo() {
-    console.log('enviarCorreo llamado');  // Verifica si la función se ejecuta
-
-    const nombre = document.getElementById("nombreInput").value;
-    const correo = document.getElementById("correoInput").value;
-    const asunto = document.getElementById("asuntoInput").value;
-
-    if (nombre === "" || correo === "" || asunto === "") {
-        alert("Por favor, complete todos los campos antes de contactarnos");
-        return false;
-    }
-
-    document.getElementById("nom").textContent = nombre;
-    document.getElementById("c").textContent = correo;
-    document.getElementById("a").textContent = asunto;
-
-    // Mostrar el modal
-    document.getElementById("modal").style.display = "flex";
-    resetForm();
-}
-
-function cerrarVentana() {
-    console.log('cerrarVentana llamado');  // Verifica si la función se ejecuta
-
-    document.getElementById("modal").style.display = "none";
-    resetForm();
-}
-
-function resetForm() {
-    document.getElementById("nombreInput").value = "";
-    document.getElementById("correoInput").value = "";
-    document.getElementById("asuntoInput").value = "";
-}
-
-document.addEventListener("DOMContentLoaded", function() {
-    console.log('DOM completamente cargado y listo');
-
-    // Asigna las funciones al botón de envío y cierre
-    const btnEnviar = document.querySelector("button#enviarBtn");
-    const btnCerrar = document.querySelector("button#cerrarBtn");
-
-    if (btnEnviar) {
-        console.log('Botón de enviar encontrado');
-        btnEnviar.onclick = enviarCorreo;
-    } else {
-        console.error('Botón de enviar no encontrado');
-    }
-
-    if (btnCerrar) {
-        console.log('Botón de cerrar encontrado');
-        btnCerrar.onclick = cerrarVentana;
-    } else {
-        console.error('Botón de cerrar no encontrado');
-    }
-});
-
-
-
-// CARRUSEL+INFO 
-document.addEventListener('DOMContentLoaded', function () {
-    const thumbnails = document.querySelectorAll('.carousel-thumbnails img');
-    const carousel = document.querySelector('#productCarousel'); // Carrusel
-  
-    // Inicializar la clase 'active-thumbnail' en la primera miniatura
-    thumbnails[0].classList.add('active-thumbnail');
-  
-    // Manejo de clic en miniaturas
+    // Función para cambiar la imagen activa y opacidad de las miniaturas
     thumbnails.forEach((thumbnail, index) => {
-      thumbnail.addEventListener('click', () => {
-        // Mover el carrusel a la imagen correspondiente
-        const carouselInstance = new bootstrap.Carousel(carousel);
-        carouselInstance.to(index); // Mueve el carrusel a la miniatura seleccionada
-  
-        // Actualizar la clase 'active-thumbnail' en las miniaturas
-        thumbnails.forEach(t => t.classList.remove('active-thumbnail'));  // Eliminar clase de todas
-        thumbnail.classList.add('active-thumbnail');  // Agregar clase a la miniatura clicada
-      });
+        thumbnail.addEventListener('click', function () {
+            // Cambiar imagen del carrusel al hacer clic en la miniatura
+            const carousel = document.getElementById('productCarousel');
+            const carouselInstance = new bootstrap.Carousel(carousel);
+            carouselInstance.to(index); // Cambiar la imagen activa en el carrusel
+
+            // Actualizar la opacidad de las miniaturas
+            thumbnails.forEach((thumb, i) => {
+                if (i === index) {
+                    thumb.classList.add('active-thumbnail');
+                } else {
+                    thumb.classList.remove('active-thumbnail');
+                }
+            });
+        });
     });
-  
-    // Sincronización de las miniaturas con el carrusel
-    carousel.addEventListener('slide.bs.carousel', function (event) {
-      const activeIndex = event.to;  // Obtener el índice de la nueva imagen activa
-  
-      // Actualizar la clase 'active-thumbnail' en las miniaturas
-      thumbnails.forEach((thumbnail, index) => {
-        thumbnail.classList.remove('active-thumbnail'); // Eliminar la clase de todas
-        if (index === activeIndex) {
-          thumbnail.classList.add('active-thumbnail'); // Agregar la clase a la miniatura activa
-        }
-      });
+
+
+    document.addEventListener('DOMContentLoaded', function () {
+        // Fecha final para la cuenta regresiva (puedes cambiarla por la fecha que desees)
+        const countdownDate = new Date("2024-12-31T23:59:59").getTime();
+    
+        // Actualización de la cuenta regresiva
+        const countdownFunction = setInterval(function() {
+            // Obtén la fecha y hora actual
+            const now = new Date().getTime();
+    
+            // Calcula la diferencia entre la fecha final y la fecha actual
+            const distance = countdownDate - now;
+    
+            // Calcula los días, horas, minutos y segundos restantes
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+            // Muestra el resultado en los elementos correspondientes
+            document.getElementById("days").innerHTML = days;
+            document.getElementById("hours").innerHTML = hours;
+            document.getElementById("minutes").innerHTML = minutes;
+            document.getElementById("seconds").innerHTML = seconds;
+    
+            // Si la cuenta regresiva ha terminado
+            if (distance < 0) {
+                clearInterval(countdownFunction);
+                document.querySelector(".p-countdown").innerHTML = "¡La cuenta regresiva ha terminado!";
+            }
+        }, 1000); // Actualiza cada segundo
     });
-  });
-
-
-
-})
-
-
-
-

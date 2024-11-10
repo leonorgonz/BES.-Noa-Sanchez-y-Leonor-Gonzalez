@@ -23,7 +23,7 @@ body {
   line-height: 1.6;
 }
 body {
-  background-image: url('C:/Users/noaes/Documents/GitHub/BES.-Noa-Sanchez-y-Leonor-Gonzalez/img/Fotofondo.jpg');
+  background-image: url('../img/fondo.jpg');
   background-size: cover; /* Asegura que la imagen cubra el fondo */
   background-position: center; /* Centra la imagen */
   background-repeat: no-repeat;
@@ -137,6 +137,7 @@ body {
 /* FLECHA Y TITULO INICIO */
 .arrow-container {
   position: absolute;
+  text-decoration: none;
   bottom: 0;
   margin-bottom: 10%;
   left: 50%;
@@ -353,6 +354,7 @@ body {
   text-align: left;
   margin-top: 20px;
   font-weight: 800;
+  color: var(--clr-secondary);
   line-height: 1.2;
 }
 
@@ -643,4 +645,7 @@ footer {
   .carousel-cell {
     width: calc(50% - 10px);
   }
+}
+.flickity-button {
+  background: transparent !important;
 }

@@ -14,7 +14,7 @@ body {
     /* PARA EL SCROLL */
     overflow: auto;
     font-size: 18px;
-    background-image: url('C:/Users/noaes/Documents/GitHub/BES.-Noa-Sanchez-y-Leonor-Gonzalez/img/Fotofondo.jpg');
+    background-image: url('../img/fondo.jpg');
     background-size: cover; /* Asegura que la imagen cubra el fondo */
     background-position: center; /* Centra la imagen */
     background-repeat: no-repeat;
@@ -140,9 +140,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     padding: 20px;
-    height: 100vh;
     gap: 30px;
-    margin: 20px;
   }
 
   /* Columnas para carrusel e información */
@@ -206,31 +204,31 @@ body {
   /* Información del producto */
   .product-info {
     max-width: 400px;
-    font-family: Inconsolata;
+    font-family:var(--ff-body);
   }
 
   .product-info h2{
     font-family: Inconsolata;
-    color: #ee5d03;
+    color: var(--clr-primary);
 
   }
 
 
   /* BOTÓN */
   .btn-custom {
-    background-color: #ff7f32; /* Naranja */
-    color: white;
+    background-color: var(--clr-primary); /* Naranja */
+    color: var(--clr-white);
     border: none; /* Elimina el borde */
-    border-radius: 30px; /* Bordes redondeados */
     padding: 10px 20px; /* Espaciado dentro del botón */
     font-size: 16px;
+    border-radius: 0 !important;
     transition: background-color 0.3s ease, transform 0.2s ease;
   }
   
   .btn-custom:hover {
-    background-color: #ee5d03;
+    background-color: var(--clr-secondary);
     transform: scale(1.05); 
-    color: white;
+    color: var(--clr-white);
   }
   
   /* Add a transparency effect for thumnbail images */
